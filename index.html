@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教育工具專案展示 (Education Tools Portfolio)</title>
+    <meta name="description" content="包含智慧課堂助手 (Smart Classroom Assistant) 與 線上螢幕錄影工具 Pro 的專案介紹首頁。">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Noto+Sans+TC:wght@300;500;700&display=swap');
+
+        :root {
+            --bg-color: #0f172a;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --accent-1-start: #8b5cf6;
+            --accent-1-end: #d946ef;
+            --accent-2-start: #0ea5e9;
+            --accent-2-end: #2dd4bf;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.15), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(14, 165, 233, 0.15), transparent 25%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            animation: fadeInDown 1s ease-out;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 3rem;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .project-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: grey;
+            transition: all 0.4s ease;
+        }
+
+        .project-card.class-assistant::before {
+            background: linear-gradient(90deg, var(--accent-1-start), var(--accent-1-end));
+        }
+
+        .project-card.screen-recorder::before {
+            background: linear-gradient(90deg, var(--accent-2-start), var(--accent-2-end));
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .icon-wrapper {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .class-assistant .icon-wrapper {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(217, 70, 239, 0.2));
+            color: #d946ef;
+        }
+
+        .screen-recorder .icon-wrapper {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(45, 212, 191, 0.2));
+            color: #0ea5e9;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 3rem;
+            flex-grow: 1;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: #cbd5e1;
+            transition: color 0.3s ease;
+        }
+
+        .feature-list li:hover {
+            color: #fff;
+        }
+
+        .feature-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 1.2rem;
+        }
+
+        .class-assistant .feature-list li::before {
+            background: linear-gradient(135deg, var(--accent-1-start), var(--accent-1-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .screen-recorder .feature-list li::before {
+            background: linear-gradient(135deg, var(--accent-2-start), var(--accent-2-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+        }
+
+        /* 預留連結按鈕樣式 */
+        .btn-placeholder {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-decoration: none;
+        }
+
+        .btn-placeholder::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: inherit;
+            filter: brightness(1.2);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+
+        .btn-placeholder:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .class-assistant .btn-placeholder {
+            background: linear-gradient(135deg, var(--accent-1-start), var(--accent-1-end));
+            color: white;
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
+        }
+
+        .screen-recorder .btn-placeholder {
+            background: linear-gradient(135deg, var(--accent-2-start), var(--accent-2-end));
+            color: white;
+            box-shadow: 0 10px 20px rgba(14, 165, 233, 0.2);
+        }
+
+        .class-assistant .btn-placeholder:hover {
+            box-shadow: 0 15px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .screen-recorder .btn-placeholder:hover {
+            box-shadow: 0 15px 30px rgba(14, 165, 233, 0.4);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .project-card {
+                padding: 2rem;
+            }
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>教學與創作者工具集</h1>
+        <p class="subtitle">為您量身打造的高效能無伺服器前端應用程式組合，提升您的教學與創作體驗。</p>
+    </header>
+
+    <main class="container">
+        
+        <!-- 專案 1: 智慧課堂助手 -->
+        <article class="project-card class-assistant">
+            <div class="icon-wrapper">
+                🎓
+            </div>
+            <h2>智慧課堂助手<br><span style="font-size: 1.2rem; font-weight: 300; opacity: 0.8;">Smart Classroom</span></h2>
+            
+            <div class="tag-container">
+                <span class="tag">教學互動</span>
+                <span class="tag">WebRTC 即時</span>
+                <span class="tag">無伺服器架構</span>
+            </div>
+
+            <p class="project-desc">
+                專為教師量身定制的數位教室大禮包。無需繁瑣部署，點開即用，具備強大的模組連動生態，可將課堂上各種情境完美整合在一起。
+            </p>
+
+            <ul class="feature-list">
+                <li><strong>雙軌互動基礎：</strong> 包含基礎單機版與進階 Pro 版，資料匯出入保證不遺失。</li>
+                <li><strong>隨機與計分結合：</strong> 支援男女混合抽籤分組，並與全域計分板互通卡片。</li>
+                <li><strong>多元動態計時：</strong> 提供大鐘、速按計時器，以及具備動畫的番茄鐘模式。</li>
+                <li><strong>語音感知系統：</strong> 透過麥克風偵測全班噪音，達成吵雜自動扣分與安靜加分。</li>
+                <li><strong>IRS 互動問答：</strong> 學生免裝 APP 掃描 QR 隨掃隨連，支援統計圖表與廣播。</li>
+            </ul>
+
+            <!-- 您可以將此 div 改變為 a 標籤來加上 href -->
+            <div class="btn-placeholder">進入 智慧課堂助手</div>
+        </article>
+
+        <!-- 專案 2: 螢幕錄影工具 Pro -->
+        <article class="project-card screen-recorder">
+            <div class="icon-wrapper">
+                🎥
+            </div>
+            <h2>螢幕錄影工具 Pro<br><span style="font-size: 1.2rem; font-weight: 300; opacity: 0.8;">Screenrecorder</span></h2>
+            
+            <div class="tag-container">
+                <span class="tag">100% 本地運算</span>
+                <span class="tag">雙軌混音</span>
+                <span class="tag">隱私安全保證</span>
+            </div>
+
+            <p class="project-desc">
+                極致輕量化且注重隱私的免安裝前端錄製器。您的畫面與音訊絕不受任何伺服器干涉，全由本機記憶體即時運算混錄產生檔案。
+            </p>
+
+            <ul class="feature-list">
+                <li><strong>多層級畫面提取：</strong> 可指定鎖定錄製整個桌面、特殊軟體視窗或分頁。</li>
+                <li><strong>專業級雙軌混音：</strong> 在前端即時混錄電腦系統內部播放聲與您的麥克風解說。</li>
+                <li><strong>浮動子母攝影機：</strong> 內建支援即時動態拖曳的 Webcam 視窗，提供絕佳臨場感。</li>
+                <li><strong>錄製生命週期控制：</strong> 狀態明確的大字元計時器，支援暫停、繼續、結束控制。</li>
+                <li><strong>高畫質直接封裝：</strong> 結束全由瀏覽器封裝為 WebM / MP4，支援馬上預覽並下載。</li>
+            </ul>
+
+            <!-- 您可以將此 div 改變為 a 標籤來加上 href -->
+            <div class="btn-placeholder">進入 螢幕錄影工具 Pro</div>
+        </article>
+
+    </main>
+
+</body>
+</html>
