@@ -30,6 +30,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+    <url>
+    <loc>https://polik18.github.io/YieldVitals/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://polik18.github.io/ytshort/</loc>
     <changefreq>monthly</changefreq>
