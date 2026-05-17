@@ -30,8 +30,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-    <url>
+  <url>
     <loc>https://polik18.github.io/YieldVitals/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/PremLogin</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
