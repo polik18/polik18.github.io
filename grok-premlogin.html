@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#06162e">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <title>Grok Build CLI Agent 教學｜2026 Grok 7 套實戰與方案比較</title>
+  <meta name="description" content="2026 Grok 教學完整介紹 Grok Build CLI Agent：安裝、Plan Mode、Subagents、/goal、Agent Dashboard、Headless 與 ACP，另附 7 套工作流及免費版、SuperGrok、PremLogin 方案比較。">
+  <meta name="author" content="C樂遊編輯部">
+  <meta name="date" content="2026-07-15">
+  <link rel="canonical" href="https://polik18.github.io/Grok-PremLogin/">
+  <link rel="icon" href="assets/c-le-you-logo.jpg">
+  <link rel="preload" href="assets/grok-supergrok-review-cover.webp" as="image" type="image/webp" fetchpriority="high">
+
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:site_name" content="C樂遊">
+  <meta property="og:title" content="Grok 值得付費嗎？Grok Build CLI Agent＋7 大實戰">
+  <meta property="og:description" content="完整介紹 Grok Build CLI Agent 的安裝、Plan Mode、Subagents、/goal、Dashboard 與自動化，再用 7 套工作流比較免費版與付費方案。">
+  <meta property="og:url" content="https://polik18.github.io/Grok-PremLogin/">
+  <meta property="og:image" content="https://polik18.github.io/Grok-PremLogin/assets/grok-supergrok-review-cover.png">
+  <meta property="og:image:secure_url" content="https://polik18.github.io/Grok-PremLogin/assets/grok-supergrok-review-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Grok 值得付費嗎？7 大實戰與免費版、SuperGrok 方案比較">
+  <meta property="article:published_time" content="2026-07-15T21:30:00+08:00">
+  <meta property="article:modified_time" content="2026-07-15T23:20:00+08:00">
+  <meta property="article:section" content="AI 工具教學">
+  <meta property="article:tag" content="Grok 教學">
+  <meta property="article:tag" content="SuperGrok">
+  <meta property="article:tag" content="PremLogin">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Grok Build CLI Agent＋7 大 Grok 實戰">
+  <meta name="twitter:description" content="Grok Build CLI Agent 安裝與安全工作流，加上 7 套 Grok 實戰及免費版、SuperGrok、共享／獨享方案比較。">
+  <meta name="twitter:image" content="https://polik18.github.io/Grok-PremLogin/assets/grok-supergrok-review-cover.png">
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://polik18.github.io/#website",
+      "url": "https://polik18.github.io/",
+      "name": "C樂遊",
+      "inLanguage": "zh-Hant-TW"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://polik18.github.io/Grok-PremLogin/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "C樂遊",
+          "item": "https://polik18.github.io/PremLogin/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI 工具教學",
+          "item": "https://polik18.github.io/Grok-PremLogin/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Grok 值得付費嗎？"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://polik18.github.io/Grok-PremLogin/#article",
+      "headline": "Grok Build CLI Agent 教學：2026 Grok 7 套實戰、SuperGrok 與 PremLogin 方案比較",
+      "description": "完整介紹 Grok Build CLI Agent 的安裝、Plan Mode、Subagents、/goal、Agent Dashboard、Headless 與 ACP，另附 7 套可重現工作流及訂閱方案決策指南。",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://polik18.github.io/Grok-PremLogin/assets/grok-supergrok-review-cover.png",
+        "width": 1200,
+        "height": 630
+      },
+      "datePublished": "2026-07-15T21:30:00+08:00",
+      "dateModified": "2026-07-15T23:20:00+08:00",
+      "inLanguage": "zh-Hant-TW",
+      "author": {
+        "@type": "Organization",
+        "name": "C樂遊編輯部"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "C樂遊",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://polik18.github.io/Grok-PremLogin/assets/c-le-you-logo.jpg"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://polik18.github.io/Grok-PremLogin/"
+      },
+      "breadcrumb": {
+        "@id": "https://polik18.github.io/Grok-PremLogin/#breadcrumb"
+      },
+      "keywords": [
+        "Grok 教學",
+        "Grok Build",
+        "Grok CLI",
+        "CLI Agent",
+        "SuperGrok",
+        "PremLogin",
+        "Grok 合訂"
+      ]
+    }
+  ]
+}
+  </script>
+
+  <style>
+    :root{
+      --navy:#06162e;--navy-2:#092b52;--blue:#0ea5e9;--cyan:#22d3ee;--orange:#f59e0b;
+      --ink:#101828;--muted:#5f6c7b;--line:#dfe6ef;--paper:#fff;--bg:#f4f7fb;
+      --soft-blue:#eff9ff;--soft-orange:#fff8eb;--soft-green:#ecfdf5;--danger:#9f1239;
+      --success:#087f5b;--shadow:0 20px 55px rgba(10,31,68,.10);--radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.82;-webkit-font-smoothing:antialiased}
+    a{color:#075e9b;text-decoration-thickness:1px;text-underline-offset:3px}
+    img{max-width:100%;height:auto}
+    button,a{touch-action:manipulation}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .skip-link{position:absolute;left:-9999px;top:8px;background:#fff;padding:10px 14px;z-index:9999;border-radius:8px}.skip-link:focus{left:8px}
+    .site-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(223,230,239,.95)}
+    .header-inner{max-width:1180px;margin:auto;min-height:68px;padding:9px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+    .brand{display:flex;align-items:center;gap:11px;color:var(--ink);text-decoration:none;font-weight:950;letter-spacing:.02em}.brand img{width:47px;height:47px;border-radius:14px;object-fit:cover;box-shadow:0 5px 16px rgba(7,89,133,.15)}.brand small{display:block;color:var(--muted);font-weight:700;font-size:12px;line-height:1.2;margin-top:3px}
+    .live-stats{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);white-space:nowrap}.live-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 5px rgba(34,197,94,.13);animation:pulse 1.8s infinite}@keyframes pulse{50%{box-shadow:0 0 0 9px rgba(34,197,94,0)}}.online-widget img{vertical-align:middle;max-height:18px;width:auto}
+
+    .hero{background:radial-gradient(circle at 77% 16%,rgba(14,165,233,.18),transparent 33%),linear-gradient(135deg,#031127 0%,#061a35 54%,#092f5e 100%);color:#fff;position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;inset:auto -18% -62% 36%;height:500px;background:radial-gradient(circle,rgba(34,211,238,.14),transparent 65%);pointer-events:none}
+    .hero-inner{max-width:1180px;margin:auto;padding:52px 20px 48px;display:grid;grid-template-columns:.88fr 1.12fr;gap:34px;align-items:center;position:relative;z-index:1}
+    .eyebrow{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;border:1px solid rgba(125,211,252,.35);background:rgba(14,165,233,.12);font-size:13px;font-weight:850;letter-spacing:.04em;color:#dff7ff}
+    .hero h1{font-size:clamp(39px,5.4vw,67px);line-height:1.11;letter-spacing:-.04em;margin:17px 0 14px}.hero h1 em{font-style:normal;color:#7dd3fc}.hero .subtitle{font-size:clamp(19px,2.3vw,28px);line-height:1.45;font-weight:880;margin:0;color:#fff}.hero .promise{font-size:16px;color:#c8e7fb;max-width:600px;margin:18px 0 0}
+    .hero-benefits{display:grid;gap:8px;margin:20px 0 23px;padding:0;list-style:none}.hero-benefits li{display:flex;gap:9px;align-items:flex-start;color:#eaf8ff;font-weight:700}.hero-benefits li:before{content:"✓";display:grid;place-items:center;flex:0 0 22px;height:22px;border-radius:50%;background:rgba(34,211,238,.16);color:#67e8f9;font-size:13px;margin-top:3px}
+    .hero-actions{display:flex;gap:11px;flex-wrap:wrap}.hero-action{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 17px;border-radius:12px;font-weight:900;text-decoration:none}.hero-action.primary{background:#fff;color:#062143}.hero-action.secondary{border:1px solid rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.06)}
+    .hero-media{border-radius:20px;overflow:hidden;border:1px solid rgba(125,211,252,.30);box-shadow:0 30px 75px rgba(0,0,0,.38);background:#06162e}.hero-media picture,.hero-media img{display:block;width:100%}.hero-media img{aspect-ratio:1200/630;object-fit:cover}
+
+    .page-wrap{max-width:1180px;margin:0 auto;padding:34px 20px 90px;display:grid;grid-template-columns:minmax(0,830px) 280px;gap:30px;align-items:start}
+    article{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}.article-head{padding:27px 36px 23px;border-bottom:1px solid var(--line)}
+    .author-row{display:flex;align-items:center;gap:13px}.author-row img{width:48px;height:48px;border-radius:50%;object-fit:cover}.author-row strong{display:block}.meta{font-size:13px;color:var(--muted)}
+    .lead{font-size:18px;line-height:1.9;margin:21px 0 0;color:#344054}.lead strong{color:#0b4a72}.disclosure{margin-top:16px;padding:10px 13px;background:#f8fafc;border-left:3px solid #94a3b8;border-radius:7px;color:#536174;font-size:12.5px}
+    .article-body{padding:30px 36px 48px}
+    .quick-answer{background:linear-gradient(135deg,#effaff,#fff);border:1px solid #b8e6fb;border-radius:19px;padding:23px;margin-bottom:20px}.quick-answer h2{margin:0 0 13px;font-size:23px;color:#075985}.answer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.answer-item{background:#fff;border:1px solid #d7edf8;border-radius:13px;padding:13px 14px}.answer-item b{display:block;color:#073b63;margin-bottom:2px}.answer-item span{font-size:14px;color:#536174}
+    .reader-promise{display:flex;gap:13px;align-items:flex-start;background:#fff8eb;border:1px solid #f7dca7;border-radius:16px;padding:17px;margin:19px 0 25px}.reader-promise .badge{display:grid;place-items:center;flex:0 0 38px;height:38px;border-radius:12px;background:#f59e0b;color:#fff;font-weight:950}.reader-promise p{margin:0;color:#5d4924}.reader-promise strong{color:#7c4a03}
+    .toc{border:1px solid #cce9f8;background:#f5fbff;border-radius:18px;padding:21px 23px;margin:27px 0}.toc h2{font-size:20px;margin:0 0 12px}.toc ol{columns:2;column-gap:30px;margin:0;padding-left:24px}.toc li{break-inside:avoid;margin:6px 0}.toc a{text-decoration:none;font-weight:750;color:#075985}.toc a:hover{text-decoration:underline}
+    .section{padding-top:20px}.section>h2{font-size:clamp(25px,3.8vw,34px);line-height:1.35;margin:25px 0 17px;padding-bottom:12px;border-bottom:2px solid var(--line);position:relative}.section>h2:after{content:"";position:absolute;left:0;bottom:-2px;width:92px;height:4px;background:linear-gradient(90deg,#0ea5e9,#f59e0b);border-radius:99px}.section h3{font-size:21px;line-height:1.45;margin:27px 0 9px;color:#0b4a72}.section p{margin:11px 0}.section ul,.section ol{padding-left:24px}.section li{margin:7px 0}
+    .num{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:12px;background:#082f49;color:#fff;font-size:18px;margin-right:8px;vertical-align:3px}
+    .callout{border-radius:15px;padding:16px 18px;margin:17px 0;border-left:5px solid}.callout.info{background:#effaff;border-color:#0ea5e9}.callout.good{background:var(--soft-green);border-color:#10b981}.callout.warn{background:var(--soft-orange);border-color:#f59e0b}.callout strong{color:#123a56}
+    .feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin:18px 0}.feature-card{border:1px solid var(--line);border-radius:16px;padding:17px;background:#fff}.feature-card b{display:block;font-size:17px;margin:6px 0 4px}.feature-card span:last-child{font-size:14px;color:#5f6c7b}.icon{font-size:25px;line-height:1}
+    .update-list{display:grid;gap:11px;margin:17px 0}.update-item{display:grid;grid-template-columns:44px 1fr;gap:13px;border:1px solid var(--line);border-radius:15px;padding:15px;background:#fff}.update-item .u-icon{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:#eef9ff;font-size:20px}.update-item b{display:block;font-size:17px}.update-item p{margin:3px 0 0;color:#5d6b7c;font-size:14px}
+    .score-table,.compare{width:100%;border-collapse:separate;border-spacing:0;font-size:14px}.table-wrap{overflow:auto;margin:18px 0;border:1px solid var(--line);border-radius:15px}.score-table th,.score-table td,.compare th,.compare td{padding:12px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}.score-table th,.compare th{background:#082f49;color:#fff;white-space:nowrap}.score-table tr:last-child td,.compare tr:last-child td{border-bottom:0}.score-table td:first-child,.compare td:first-child{font-weight:800;color:#17324d}.recommended{background:#fff8eb;font-weight:850;color:#8a4d00}
+    .workflow{border:1px solid var(--line);border-radius:20px;margin:21px 0;overflow:hidden;background:#fff;box-shadow:0 10px 30px rgba(16,24,40,.045)}.workflow-head{padding:19px 20px;background:linear-gradient(135deg,#f3fbff,#fff);border-bottom:1px solid var(--line)}.workflow-head .tag{display:inline-block;font-size:12px;font-weight:900;color:#075985;background:#dff5ff;border-radius:999px;padding:4px 9px}.workflow-head h3{margin:8px 0 4px;font-size:23px}.workflow-head p{margin:0;color:#5f6c7b;font-size:14px}.workflow-body{padding:18px 20px}.workflow-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:14px}.mini{border:1px solid var(--line);border-radius:12px;padding:10px 11px;background:#fafcff}.mini b{display:block;font-size:12px;color:#667085;text-transform:uppercase;letter-spacing:.03em}.mini span{font-size:14px;font-weight:800;color:#1d3b55}.prompt-wrap{position:relative;margin:13px 0}.prompt{background:#0d182b;color:#e6f4ff;padding:43px 18px 17px;border-radius:14px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;line-height:1.72;white-space:pre-wrap;overflow:auto}.prompt-label{position:absolute;left:16px;top:11px;color:#67e8f9;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;font-weight:900;letter-spacing:.04em}.prompt-copy{position:absolute;right:10px;top:8px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff;border-radius:8px;padding:6px 9px;font-size:11px;font-weight:800;cursor:pointer}.verify{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:15px}.verify-box{border-radius:13px;padding:14px;border:1px solid}.verify-box.good{background:#f0fdf8;border-color:#b7ead7}.verify-box.bad{background:#fff6f6;border-color:#f2c2c9}.verify-box b{display:block;margin-bottom:5px}.verify-box ul{margin:0;padding-left:20px;font-size:14px}.workflow-verdict{margin-top:13px;background:#f8fafc;border-radius:12px;padding:12px 14px;font-size:14px}.workflow-verdict strong{color:#0b4a72}
+    .decision-tree{border:1px solid #bfe4f5;background:linear-gradient(135deg,#eefaff,#fff);border-radius:18px;padding:20px;margin:18px 0}.decision-tree h3{margin:0 0 6px}.quiz-grid{display:grid;gap:13px;margin:15px 0}.quiz-q{background:#fff;border:1px solid #d6e9f4;border-radius:13px;padding:13px}.quiz-q strong{display:block;margin-bottom:8px}.quiz-q label{display:inline-flex;align-items:center;gap:6px;margin-right:16px;font-size:14px}.quiz-result{display:none;margin-top:13px;border-radius:12px;padding:14px;background:#082f49;color:#fff}.quiz-result.show{display:block}.quiz-result b{color:#7dd3fc}.quiz-btn{border:0;background:#075985;color:#fff;border-radius:11px;padding:11px 16px;font-weight:900;cursor:pointer}
+    .steps{counter-reset:step;list-style:none;padding:0!important}.steps li{counter-increment:step;position:relative;padding:2px 0 16px 50px;min-height:43px}.steps li:before{content:counter(step);position:absolute;left:0;top:0;display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:#082f49;color:#fff;font-weight:900}.steps li:not(:last-child):after{content:"";position:absolute;left:16px;top:35px;bottom:0;border-left:2px dashed #cbd5e1}
+    .coupon{border:1px solid #f4ce83;background:linear-gradient(135deg,#fff8eb,#fff);border-radius:20px;padding:24px;text-align:center;margin:22px 0}.coupon .label{font-weight:900;color:#7c4a03}.coupon-code{display:flex;justify-content:center;align-items:center;gap:10px;margin:10px 0}.coupon code{font-size:28px;font-weight:950;color:#9a3412;letter-spacing:.08em}.copy-btn{border:1px solid #d3dbe6;background:#fff;border-radius:9px;padding:7px 10px;font-weight:800;cursor:pointer}.cta-row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:15px}.cta{display:inline-flex;align-items:center;justify-content:center;min-height:46px;border:0;border-radius:12px;background:#075985;color:#fff!important;padding:11px 18px;font-weight:900;text-decoration:none;box-shadow:0 8px 20px rgba(7,89,133,.18)}.cta.secondary{background:#fff;color:#075985!important;border:1px solid #99c6df;box-shadow:none}
+    .creator-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.flow-card{position:relative;border:1px solid #c7e6f5;border-radius:16px;padding:17px;background:#fff}.flow-card span{display:grid;place-items:center;width:31px;height:31px;border-radius:10px;background:#0ea5e9;color:#fff;font-weight:900}.flow-card b{display:block;font-size:16px;margin:9px 0 3px}.flow-card p{font-size:13.5px;color:#617083;margin:0}.bonus-section{margin-top:32px;padding:26px;border-radius:20px;background:linear-gradient(135deg,#06162e,#0b3c69);color:#eaf7ff}.bonus-section>h2{color:#fff;border-color:rgba(255,255,255,.18);margin-top:8px}.bonus-section>h2:after{background:linear-gradient(90deg,#22d3ee,#f59e0b)}.bonus-kicker{font-weight:900;color:#fcd34d}.bonus-section .flow-card{color:#15273b}.bonus-section .callout{color:#17324d}
+    details{border:1px solid var(--line);border-radius:13px;margin:9px 0;background:#fff}summary{cursor:pointer;font-weight:850;padding:13px 15px;color:#17324d}details p{padding:0 15px 14px;margin:0!important;color:#536174}
+    .related-reading{margin-top:30px}.related-reading h2{font-size:23px}.related-card{display:grid;grid-template-columns:68px 1fr 30px;gap:15px;align-items:center;border:1px solid var(--line);border-radius:17px;padding:15px;text-decoration:none;background:#fff;transition:.2s}.related-card:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(16,24,40,.08)}.related-logo{width:66px;height:66px;border-radius:16px;object-fit:cover}.related-copy b{display:block;font-size:17px;color:#102a43}.related-copy span{font-size:13.5px;color:#617083}.related-arrow{font-size:25px;color:#0ea5e9}.sources{margin-top:29px;border-top:1px solid var(--line);padding-top:20px}.sources h2{font-size:20px}.sources ol{font-size:13px;color:#5f6c7b}.sources p{font-size:12.5px;color:#667085}.disclaimer-section{margin-top:30px;border:1px solid #d8e1ec;border-radius:18px;background:#f8fafc;padding:24px}.disclaimer-section>h2{font-size:24px;margin-top:0}.disclaimer-intro{font-size:15px;color:#475467}.disclaimer-list{margin:14px 0 0;padding-left:21px}.disclaimer-list li{margin:9px 0;color:#475467}.disclaimer-list strong{color:#182230}.disclaimer-note{margin-top:16px;padding-top:14px;border-top:1px dashed #cbd5e1;font-size:13px;color:#667085}
+    .sidebar{position:sticky;top:88px;display:grid;gap:16px}.side-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 10px 30px rgba(16,24,40,.055)}.side-card h2{font-size:17px;margin:0 0 10px}.side-card p{font-size:14px;color:#667085;margin:8px 0}.side-nav{list-style:none;padding:0;margin:0}.side-nav a{display:block;padding:7px 0;text-decoration:none;font-size:14px;font-weight:750;border-bottom:1px dashed #e2e8f0}.side-nav li:last-child a{border-bottom:0}.side-summary b{display:block;color:#0b4a72;margin-bottom:3px}.side-summary span{font-size:13px;color:#667085}.side-summary div+div{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+    .footer{background:#06162e;color:#bdd8ed;text-align:center;padding:34px 20px;font-size:13px}.footer strong{color:#fff}.footer a{color:#fde68a}.mobile-cta{display:none;position:fixed;z-index:45;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom));background:#fff;border:1px solid #f3cd83;border-radius:16px;box-shadow:0 15px 45px rgba(15,23,42,.25);padding:9px 10px;align-items:center;gap:9px}.mobile-cta div{min-width:0}.mobile-cta b{display:block;font-size:13px}.mobile-cta span{display:block;font-size:11px;color:#667085}.mobile-cta .cta{margin-left:auto;padding:9px 12px;font-size:12px;white-space:nowrap;min-height:39px}.back-top{position:fixed;right:20px;bottom:24px;border:0;background:#0f172a;color:#fff;border-radius:50%;width:44px;height:44px;cursor:pointer;opacity:0;pointer-events:none;transition:.2s;box-shadow:0 8px 24px rgba(15,23,42,.25)}.back-top.show{opacity:1;pointer-events:auto}
+    @media(max-width:960px){.hero-inner{grid-template-columns:1fr;gap:26px}.hero-copy{max-width:760px}.page-wrap{grid-template-columns:1fr;max-width:880px}.sidebar{display:none}.mobile-cta{display:flex}.back-top{bottom:84px}}
+    @media(max-width:680px){.header-inner{padding:8px 12px}.brand img{width:42px;height:42px}.brand small{display:none}.live-stats{font-size:11px;gap:4px}.hero-inner{padding:38px 14px 34px}.hero h1{font-size:42px}.hero .subtitle{font-size:20px}.hero .promise{font-size:15px}.page-wrap{padding:17px 9px 105px}.article-head,.article-body{padding-left:18px;padding-right:18px}.answer-grid,.feature-grid,.workflow-meta,.verify,.creator-flow{grid-template-columns:1fr}.toc ol{columns:1}.section>h2{font-size:26px}.workflow-head,.workflow-body{padding-left:15px;padding-right:15px}.coupon{padding:20px 14px}.coupon code{font-size:24px}.lead{font-size:16px}.related-card{grid-template-columns:58px 1fr;gap:12px}.related-logo{width:56px;height:56px}.related-arrow{display:none}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+    @media print{.site-header,.sidebar,.mobile-cta,.back-top,.hero-actions,.copy-btn,.prompt-copy,.quiz-btn{display:none!important}.page-wrap{display:block;padding:0}article{box-shadow:none;border:0}.hero{background:#fff;color:#000}.hero .promise,.hero-benefits li{color:#333}}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="https://polik18.github.io/PremLogin/" aria-label="C樂遊首頁">
+      <img src="assets/c-le-you-logo.jpg" alt="C樂遊 Logo" width="47" height="47">
+      <span>C樂遊<small>AI 工具實戰專欄</small></span>
+    </a>
+    <div class="live-stats" aria-label="網站即時統計">
+      <span class="live-dot" aria-hidden="true"></span><span>在線：</span><span class="online-widget" id="grok-online">載入中</span><span aria-hidden="true">｜</span><span>累積瀏覽：</span><strong id="view-count">…</strong>
+    </div>
+  </div>
+</header>
+
+<section class="hero" aria-labelledby="page-title">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow">⚡ 2026 Grok 教學與訂閱決策指南</span>
+      <h1 id="page-title">Grok <em>值得付費</em>嗎？</h1>
+      <p class="subtitle">Grok Build CLI Agent＋7 套可直接照做的工作流，完整比較免費版、SuperGrok 與 PremLogin 方案</p>
+      <p class="promise">這篇不只列功能。除了即時查證、X 輿情、SEO、PDF 與影音工作流，也會完整拆解 Grok Build CLI Agent 如何在終端機讀取專案、規畫修改、呼叫子代理、執行測試與持續完成長任務。</p>
+      <ul class="hero-benefits">
+        <li>每套工作流都有提示詞、驗證清單與常見失敗點</li>
+        <li>用 60 秒互動選擇器找到適合自己的方案</li>
+        <li>完整介紹 Grok Build CLI Agent：Plan、Subagents、/goal、Dashboard、Headless／ACP</li>
+        <li>含 Grok × CapCut Pro 的短影音產製流程</li>
+      </ul>
+      <div class="hero-actions"><a class="hero-action primary" href="#quick-answer">先看 30 秒結論</a><a class="hero-action secondary" href="#grok-build-cli">直接看 CLI Agent 教學</a></div>
+    </div>
+    <figure class="hero-media">
+      <picture>
+        <source srcset="assets/grok-supergrok-review-cover.webp" type="image/webp">
+        <img src="assets/grok-supergrok-review-cover.png" alt="Grok 值得付費嗎？7 大實戰與免費版、SuperGrok 方案比較" width="1200" height="630" fetchpriority="high">
+      </picture>
+    </figure>
+  </div>
+</section>
+
+<main class="page-wrap" id="main">
+  <article>
+    <div class="article-head">
+      <div class="author-row">
+        <img src="assets/c-le-you-logo.jpg" alt="C樂遊" width="48" height="48">
+        <div><strong>C樂遊編輯部｜AI 工具實戰專欄</strong><div class="meta">發布：2026-07-15　・　預估閱讀時間：28 分鐘　・　最後查核：2026-07-15</div></div>
+      </div>
+      <p class="lead">當一則熱門事件剛在 X 發酵，Grok 可以建立時間線、整理不同立場，再把研究結果改寫成貼文或短影音腳本；而對開發者來說，更大的變化是 <strong>Grok Build CLI Agent 已能直接進入本機專案，先規畫、再改檔、跑測試，甚至平行調度多個子代理</strong>。真正的問題不再只是「Grok 會不會聊天」，而是免費版與付費方案能否支撐你的完整工作流。</p>
+      <div class="disclosure">利益揭露：本文含 PremLogin 聯盟連結，透過連結購買本站可能獲得分潤，但不會提高你的商品售價。PremLogin 是第三方訂閱服務平台，並非 xAI 官方網站；方案、價格及交付方式請以當下商品頁為準。</div>
+    </div>
+
+    <div class="article-body">
+      <section class="quick-answer" id="quick-answer" aria-labelledby="quick-title">
+        <h2 id="quick-title">30 秒結論：你需要付費嗎？</h2>
+        <div class="answer-grid">
+          <div class="answer-item"><b>偶爾聊天、查公開資料</b><span>先用免費版。沒有穩定工作流前，付費通常只是在買「可能會用到」。</span></div>
+          <div class="answer-item"><b>每週做即時研究或內容企劃</b><span>SuperGrok 的較高額度與進階工具比較容易產生時間價值。</span></div>
+          <div class="answer-item"><b>想在終端機使用 CLI Agent</b><span>先用 Grok Build 的免費試用確認工作流；涉及私有程式庫、長任務或大量代理工作時，優先使用自己控制的官方／獨享帳號。</span></div>
+          <div class="answer-item"><b>想先低成本測試完整功能</b><span>可比較 PremLogin 共享方案，但只處理公開或不敏感資料。</span></div>
+          <div class="answer-item"><b>會放客戶、公司或未公開資料</b><span>優先使用自己的官方、獨享或商務帳號，不要為省月費犧牲資料隔離。</span></div>
+        </div>
+      </section>
+
+      <div class="reader-promise"><span class="badge">7</span><p><strong>本文所稱的「實戰」是可重現工作流，不是假裝跑過不存在的測試數字。</strong>你可以直接複製每套提示詞，在自己的 Grok 帳號執行，並用同一份查證清單評估結果。</p></div>
+
+      <nav class="toc" aria-labelledby="toc-title">
+        <h2 id="toc-title">文章導覽</h2>
+        <ol>
+          <li><a href="#why-grok">Grok 的核心優勢</a></li>
+          <li><a href="#new-2026">2026 新功能重點</a></li>
+          <li><a href="#grok-build-cli">Grok Build CLI Agent 教學</a></li>
+          <li><a href="#workflows">7 套實戰工作流</a></li>
+          <li><a href="#free-vs-paid">免費版與付費版怎麼選</a></li>
+          <li><a href="#plan-quiz">60 秒方案選擇器</a></li>
+          <li><a href="#premlogin">PremLogin 適合誰</a></li>
+          <li><a href="#buy-guide">購買與登入教學</a></li>
+          <li><a href="#privacy">共享方案使用守則</a></li>
+          <li><a href="#creator-bonus">Grok × CapCut 工作流</a></li>
+          <li><a href="#faq">常見問題</a></li>
+          <li><a href="#disclaimer">免責聲明</a></li>
+        </ol>
+      </nav>
+
+      <section class="section" id="why-grok">
+        <h2><span class="num">1</span>Grok 的核心優勢：不是更會聊天，而是更接近「正在發生的網路」</h2>
+        <p>Grok 是 xAI 推出的 AI 助理，可在網頁、App 與 X 生態中使用。它最有辨識度的能力，是把即時網路搜尋與 X 上的公開討論帶入研究流程，再搭配圖片影片生成、文件分析、Skills、Connectors 和程式代理。</p>
+        <div class="feature-grid">
+          <div class="feature-card"><span class="icon">🌐</span><b>即時網路與 X 資訊</b><span>適合事件追蹤、社群反應與趨勢研究，但仍要檢查來源品質。</span></div>
+          <div class="feature-card"><span class="icon">🧠</span><b>長任務與代理式工作</b><span>可先規畫、搜尋、整理，再持續修改，不只輸出一段答案。</span></div>
+          <div class="feature-card"><span class="icon">🎨</span><b>Imagine 圖片與影片</b><span>從文字或參考圖生成內容，並在對話中反覆調整。</span></div>
+          <div class="feature-card"><span class="icon">🧩</span><b>Skills 與 Connectors</b><span>保存工作規則，並連接郵件、雲端文件、日曆與開發工具。</span></div>
+        </div>
+        <div class="callout info"><strong>Grok 最適合的題目：</strong>答案會隨時間快速改變，而且你需要知道「現在大家在討論什麼」。若問題只是固定知識或簡單改寫，免費 AI 往往已經夠用。</div>
+      </section>
+
+      <section class="section" id="new-2026">
+        <h2><span class="num">2</span>2026 Grok 新功能：真正影響使用方式的六個變化</h2>
+        <div class="update-list">
+          <div class="update-item"><span class="u-icon">4.5</span><div><b>Grok 4.5</b><p>xAI 在 2026 年 7 月推出 Grok 4.5，主攻程式開發、代理任務與知識工作。對複雜工程與多步驟任務，比單純問答更能看出價值。</p></div></div>
+          <div class="update-item"><span class="u-icon">∞</span><div><b>每週共用額度池</b><p>付費用戶的 Chat、Imagine、Voice、Build 等使用量逐步整合為一個每週額度池。影片與長時間 coding 任務通常比文字聊天消耗更多。</p></div></div>
+          <div class="update-item"><span class="u-icon">🎞</span><div><b>Imagine 圖片與影片整合</b><p>可在同一條對話裡生成、重製和編輯視覺內容。實際影片長度、畫質與額度會依方案及當下介面調整。</p></div></div>
+          <div class="update-item"><span class="u-icon">🧠</span><div><b>Skills：把工作規則記住</b><p>可保存格式、語氣與流程，並用來生成文件、簡報與試算表，減少每次重新交代背景。</p></div></div>
+          <div class="update-item"><span class="u-icon">🔌</span><div><b>Connectors：直接接工作資料</b><p>官方文件列出郵件、雲端硬碟、日曆與其他工具連接能力；不同連接器的可用範圍依帳號與地區而異。</p></div></div>
+          <div class="update-item"><span class="u-icon">⌘</span><div><b>Grok Build CLI Agent</b><p>現在由 Grok 4.5 驅動，除了 Plan Mode 與乾淨 diff，還加入平行 Subagents、長任務 <code>/goal</code>、Agent Dashboard、Headless 腳本與 ACP 整合。</p></div></div>
+        </div>
+        <p class="meta">資料依 xAI 官方產品頁、Grok 4.5、Skills、Connectors、Grok Build 與 FAQ 整理；來源列於文末。</p>
+      </section>
+
+      <section class="section" id="grok-build-cli">
+        <h2><span class="num">3</span>Grok Build CLI Agent 教學：把 Grok 帶進終端機，自主讀碼、改檔與測試</h2>
+        <p><strong>Grok Build</strong> 不是把聊天視窗搬到黑底終端機而已。它是一個由 Grok 4.5 驅動的 coding agent，可在專案目錄中搜尋程式碼、讀取規則、提出計畫、修改多個檔案、執行指令與測試，並把結果以 diff 交給你審核。官方目前同時提供互動式全螢幕 TUI、Headless 腳本模式，以及讓 IDE 或其他工具接入的 Agent Client Protocol（ACP）。</p>
+        <div class="callout info"><strong>目前可先免費試：</strong>xAI 的 Grok Build 產品頁標示「Available to try for Free」。免費試用範圍、額度與登入資格可能調整；準備把它用在長任務或正式專案前，仍應查看登入後介面和官方方案頁。</div>
+
+        <div class="feature-grid">
+          <div class="feature-card"><span class="icon">🗺️</span><b>Plan Mode：先審計畫再改檔</b><span>複雜任務可先鎖住編輯，逐步審核、留言或重寫計畫；核准後每項變更會以清楚 diff 呈現。</span></div>
+          <div class="feature-card"><span class="icon">🤖</span><b>Subagents：平行分工</b><span>主代理可把探索、測試與程式碼審查交給不同子代理，並支援各自的 context 與 git worktree。</span></div>
+          <div class="feature-card"><span class="icon">🎯</span><b><code>/goal</code>：長時間自主任務</b><span>設定一個目標後，代理會建立進度清單、持續執行與驗證；可查看狀態、暫停、恢復或清除。</span></div>
+          <div class="feature-card"><span class="icon">🖥️</span><b>Agent Dashboard：同時管理多個工作</b><span>使用 <code>grok dashboard</code> 檢視各 session 的進度、等待核准項目與輸出，不必逐個終端機切換。</span></div>
+          <div class="feature-card"><span class="icon">⚙️</span><b>Headless／ACP：放進自動化與 IDE</b><span>可用 <code>grok -p</code> 產生純文字或 JSON 輸出，也能用 <code>grok agent stdio</code> 透過 ACP 接到其他應用。</span></div>
+          <div class="feature-card"><span class="icon">🧩</span><b>Skills、Plugins、MCP 與專案規則</b><span>支援 AGENTS.md、hooks、MCP servers 與外掛市場；官方文件也列出對 CLAUDE.md 與 Claude Code 生態的相容讀取。</span></div>
+        </div>
+
+        <h3>5 分鐘安裝與啟動</h3>
+        <p>先切到你準備測試的專案目錄。第一次不要拿公司正式 repository 開刀，建議用可還原的測試分支或公開範例專案。</p>
+        <div class="prompt-wrap"><span class="prompt-label">macOS／Linux／WSL</span><button class="prompt-copy" type="button" data-copy-target="prompt-cli-install-unix">複製</button><pre class="prompt" id="prompt-cli-install-unix">curl -fsSL https://x.ai/cli/install.sh | bash
+cd your-project
+grok</pre></div>
+        <div class="prompt-wrap"><span class="prompt-label">Windows PowerShell</span><button class="prompt-copy" type="button" data-copy-target="prompt-cli-install-win">複製</button><pre class="prompt" id="prompt-cli-install-win">irm https://x.ai/cli/install.ps1 | iex
+cd your-project
+grok</pre></div>
+        <p>首次啟動通常會開啟瀏覽器完成登入；在 SSH、CI 或沒有瀏覽器的環境，可依官方文件使用 device login 或設定 <code>XAI_API_KEY</code>。執行 <code>grok inspect</code> 可先查看目前目錄會載入哪些 rules、skills、plugins、hooks 與 MCP servers。</p>
+
+        <h3>最適合本站文章的實作：請 Agent 稽核 GitHub Pages，而不是直接「幫我改好」</h3>
+        <div class="prompt-wrap"><span class="prompt-label">Grok Build CLI 任務範本</span><button class="prompt-copy" type="button" data-copy-target="prompt-cli-pages">複製</button><pre class="prompt" id="prompt-cli-pages">你正在一個 GitHub Pages 專案中。請先進入 Plan Mode，不要立即修改檔案。
+
+目標：稽核並改善這篇繁體中文 SEO 教學文章，但不得更換品牌版型、PremLogin 聯盟網址或折扣碼 HJZ001。
+
+請依序完成：
+1. 讀取 index.html、README、robots.txt、sitemap.xml 與 assets。
+2. 檢查 title、description、canonical、Open Graph、Article／Breadcrumb JSON-LD、H1–H3、內部錨點、圖片 alt、行動版與無障礙。
+3. 列出「內容缺口」「事實可能過時」「技術錯誤」「轉換阻力」四類問題。
+4. 先顯示修改計畫、涉及檔案與風險，等我核准。
+5. 核准後只做必要修改，顯示完整 diff。
+6. 執行 HTML／JSON-LD／JavaScript 與站內連結檢查。
+7. 不要捏造實測、價格、官方合作或保證；動態資訊需留下查核日期。
+8. 最後輸出變更摘要、仍需人工確認事項與回復方式。</pre></div>
+
+        <div class="table-wrap" role="region" aria-label="Grok Build CLI 常用模式與命令" tabindex="0">
+          <table class="score-table">
+            <thead><tr><th>模式／命令</th><th>用途</th><th>適合情境</th></tr></thead>
+            <tbody>
+              <tr><td><code>grok</code></td><td>啟動互動式 TUI</td><td>探索專案、討論計畫、逐步修改</td></tr>
+              <tr><td>Plan Mode</td><td>先禁止編輯，核准計畫後才動手</td><td>重構、跨檔案修改、正式 repository</td></tr>
+              <tr><td><code>/goal</code></td><td>持續執行並驗證長任務</td><td>遷移、修復測試、完整功能實作</td></tr>
+              <tr><td><code>grok dashboard</code></td><td>集中查看與回覆多個 agent session</td><td>同時處理多 repo 或多條工作線</td></tr>
+              <tr><td><code>grok -p "…"</code></td><td>Headless 單次執行，可輸出 JSON</td><td>腳本、CI/CD、批次稽核</td></tr>
+              <tr><td><code>grok agent stdio</code></td><td>以 ACP／JSON-RPC 提供 agent</td><td>IDE、內部工具或自訂 agent 整合</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="verify">
+          <div class="verify-box good"><b>安全使用清單</b><ul><li>先建立 git branch／worktree 與乾淨 commit</li><li>先 Plan、再核准 diff，最後跑測試</li><li>最小權限提供環境變數與 MCP</li><li>任何 deploy、push、刪檔都人工確認</li></ul></div>
+          <div class="verify-box bad"><b>不要這樣使用</b><ul><li>在共享帳號貼入私有程式碼或 secrets</li><li>直接使用 auto-approve 跑陌生 repository</li><li>讓 agent 在沒有測試與回復點時大規模重構</li><li>把「任務完成」等同於「品質已驗證」</li></ul></div>
+        </div>
+        <div class="callout warn"><strong>PremLogin 使用者特別注意：</strong>CLI 需要在本機完成帳號驗證，是否能使用、可用額度與交付帳號是否允許 CLI 登入，不能只從「包含 SuperGrok」推定。若你購買 Grok 的主要目的就是連接私有 repository 或長時間跑 Agent，購買前先向 PremLogin 確認交付規格；敏感程式碼優先使用自己控制的官方、獨享或企業帳號。</div>
+      </section>
+
+      <section class="section" id="workflows">
+        <h2><span class="num">4</span>7 套 Grok 實戰工作流：提示詞、查證與付費價值一次給你</h2>
+        <p>下面不是孤零零的一句 Prompt，而是可以重複使用的工作流程。每套都包含「先規畫、再執行、最後驗證」，降低 Grok 搜到舊資料、把少數貼文當民意，或自行補完資訊的機率。</p>
+
+        <div class="table-wrap" role="region" aria-label="七套 Grok 工作流快速比較" tabindex="0">
+          <table class="score-table">
+            <thead><tr><th>工作流</th><th>最適合</th><th>免費版是否能試</th><th>付費價值主要在哪</th></tr></thead>
+            <tbody>
+              <tr><td>事件查證時間線</td><td>新聞、研究、社群小編</td><td>可以</td><td>搜尋頻率、長任務與額度</td></tr>
+              <tr><td>X 輿情地圖</td><td>品牌、行銷、投資觀察</td><td>可以</td><td>大量來源與持續追蹤</td></tr>
+              <tr><td>SEO 內容企畫</td><td>站長、部落客、編輯</td><td>可以</td><td>研究深度與多輪修改</td></tr>
+              <tr><td>PDF 決策摘要</td><td>知識工作者、主管</td><td>視額度</td><td>較長文件與多檔案</td></tr>
+              <tr><td>圖片迭代</td><td>設計、社群、電商</td><td>可試</td><td>生成額度與高品質模式</td></tr>
+              <tr><td>短影音產製</td><td>Reels、Shorts、TikTok</td><td>前期可試</td><td>影像生成與大量版本</td></tr>
+              <tr><td>程式除錯與 Build</td><td>工程師、獨立開發者</td><td>聊天可試</td><td>終端機代理與長任務</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <article class="workflow" id="workflow-news">
+          <div class="workflow-head"><span class="tag">工作流 1｜即時研究</span><h3>把突發事件整理成「可查證時間線」</h3><p>避免只整理新聞摘要，先區分已確認事實、當事人說法、媒體推測與 X 上的未證實訊息。</p></div>
+          <div class="workflow-body">
+            <div class="workflow-meta"><div class="mini"><b>輸入</b><span>事件名稱＋時間範圍</span></div><div class="mini"><b>輸出</b><span>時間線＋來源分級</span></div><div class="mini"><b>適合</b><span>新聞／內容研究</span></div></div>
+            <div class="prompt-wrap"><span class="prompt-label">完整提示詞</span><button class="prompt-copy" type="button" data-copy-target="prompt-news">複製</button><pre class="prompt" id="prompt-news">請研究「＿＿＿＿」在最近 72 小時內的進展。
+
+先不要寫文章，請依序完成：
+1. 列出需要查證的 5 個核心問題。
+2. 優先搜尋官方公告、當事人原文與第一手資料，再補充可信媒體。
+3. 建立含日期與時間的事件時間線。
+4. 將內容標記為：已確認事實／當事人主張／媒體報導／社群未證實說法。
+5. 找出來源之間互相矛盾的部分，不要替我選邊。
+6. 最後產出 500 字繁體中文摘要，並在每個重要結論後附來源。</pre></div>
+            <div class="verify"><div class="verify-box good"><b>發布前要確認</b><ul><li>關鍵來源是否真的打得開</li><li>日期是否為最新版本</li><li>官方說法是否被錯當事實</li></ul></div><div class="verify-box bad"><b>常見失敗</b><ul><li>只引用二手轉述</li><li>把社群熱度當真實比例</li><li>沒有標示仍待確認的資訊</li></ul></div></div>
+            <div class="workflow-verdict"><strong>付費值不值得：</strong>偶爾追一則事件，免費版先試；每天要追多個主題、反覆更新時間線，較高額度才比較有感。</div>
+          </div>
+        </article>
+
+        <article class="workflow" id="workflow-x">
+          <div class="workflow-head"><span class="tag">工作流 2｜X 輿情</span><h3>建立「觀點地圖」，而不是假裝算出民意</h3><p>Grok 能接近 X 的即時討論，但高互動貼文不等於整體市場意見。</p></div>
+          <div class="workflow-body">
+            <div class="workflow-meta"><div class="mini"><b>輸入</b><span>品牌／人物／事件</span></div><div class="mini"><b>輸出</b><span>立場分群＋論點</span></div><div class="mini"><b>適合</b><span>品牌與內容策略</span></div></div>
+            <div class="prompt-wrap"><span class="prompt-label">完整提示詞</span><button class="prompt-copy" type="button" data-copy-target="prompt-x">複製</button><pre class="prompt" id="prompt-x">分析 X 上最近 7 天關於「＿＿＿＿」的公開討論。
+
+請完成以下步驟：
+1. 將主要觀點分成支持、反對、中立／資訊型三組。
+2. 每組整理反覆出現的 3–5 個論點與代表性公開來源。
+3. 分開標記：一般使用者、媒體、官方帳號、產業人士與高粉絲帳號。
+4. 找出可能由單一高互動貼文放大的議題。
+5. 不要把貼文數或按讚數直接解釋成民意比例。
+6. 最後提出品牌可回應、暫不回應與需要進一步查證的項目。</pre></div>
+            <div class="verify"><div class="verify-box good"><b>發布前要確認</b><ul><li>代表貼文是否斷章取義</li><li>是否只集中單一語言圈</li><li>高粉帳號是否扭曲樣本</li></ul></div><div class="verify-box bad"><b>常見失敗</b><ul><li>生成不存在的比例</li><li>把酸民玩笑當正式立場</li><li>忽略時間與地域差異</li></ul></div></div>
+            <div class="workflow-verdict"><strong>付費值不值得：</strong>需要每天追蹤、分析多個品牌或做長期輿情報告時，付費額度更有價值；一次性研究不必急著升級。</div>
+          </div>
+        </article>
+
+        <article class="workflow" id="workflow-seo">
+          <div class="workflow-head"><span class="tag">工作流 3｜SEO</span><h3>從關鍵字變成「有內容缺口的文章企畫」</h3><p>真正有用的 SEO 研究不是產生一堆 H2，而是找出現有文章沒回答、你又能提供證據的地方。</p></div>
+          <div class="workflow-body">
+            <div class="workflow-meta"><div class="mini"><b>輸入</b><span>主關鍵字＋市場</span></div><div class="mini"><b>輸出</b><span>意圖＋大綱＋證據清單</span></div><div class="mini"><b>適合</b><span>站長與內容團隊</span></div></div>
+            <div class="prompt-wrap"><span class="prompt-label">完整提示詞</span><button class="prompt-copy" type="button" data-copy-target="prompt-seo">複製</button><pre class="prompt" id="prompt-seo">針對台灣繁體中文搜尋者，研究主關鍵字「＿＿＿＿」。
+
+請不要直接寫完整文章，先產出內容企畫：
+1. 判斷主要、次要與交易型搜尋意圖。
+2. 分析目前搜尋結果常見的內容結構與重複說法。
+3. 找出至少 5 個仍未被充分回答的問題或內容缺口。
+4. 列出哪些段落必須加入第一手截圖、實測、價格查核或作者判斷。
+5. 產出一個不堆砌關鍵字的 H1、8–12 個 H2/H3、FAQ 與 meta description。
+6. 標註每一節的讀者目的，以及應避免的誇大承諾。
+7. 最後列出文章發布前的查證清單與可引用的官方來源。</pre></div>
+            <div class="verify"><div class="verify-box good"><b>高品質判斷</b><ul><li>有明確第一手證據位置</li><li>內容順序符合搜尋決策</li><li>不是把競品文章換句話說</li></ul></div><div class="verify-box bad"><b>常見失敗</b><ul><li>硬塞所有相關關鍵字</li><li>大綱很完整但沒有新資訊</li><li>用 AI 摘要冒充實測</li></ul></div></div>
+            <div class="workflow-verdict"><strong>付費值不值得：</strong>一篇簡單文章，免費版可完成企畫；需要大量競品研究、不同受眾版本與反覆改稿時，付費才容易回本。</div>
+          </div>
+        </article>
+
+        <article class="workflow" id="workflow-pdf">
+          <div class="workflow-head"><span class="tag">工作流 4｜PDF 與文件</span><h3>把長報告變成「可追溯的決策摘要」</h3><p>不要只叫 AI 摘要。要求它標註頁碼、數字來源與未能確認之處，才有工作價值。</p></div>
+          <div class="workflow-body">
+            <div class="workflow-meta"><div class="mini"><b>輸入</b><span>PDF／報告／文件</span></div><div class="mini"><b>輸出</b><span>決策摘要＋證據表</span></div><div class="mini"><b>適合</b><span>主管與研究人員</span></div></div>
+            <div class="prompt-wrap"><span class="prompt-label">完整提示詞</span><button class="prompt-copy" type="button" data-copy-target="prompt-pdf">複製</button><pre class="prompt" id="prompt-pdf">閱讀我上傳的文件，目標是協助「＿＿＿＿」做決策。
+
+請依序輸出：
+1. 200 字管理層摘要。
+2. 5 個最重要發現，每項附原文頁碼或章節。
+3. 文件中的關鍵數字表格，保留單位、期間與資料來源。
+4. 找出前後不一致、定義不清或證據不足的地方。
+5. 分開列出：文件已證明／作者推論／你無法確認的內容。
+6. 提出 5 個下一步問題，不要替缺失資料自行補值。
+
+最後，再用一個表格標示每項結論的信心程度與依據。</pre></div>
+            <div class="verify"><div class="verify-box good"><b>發布前要確認</b><ul><li>頁碼是否真的對應內容</li><li>百分比與幣別有無誤讀</li><li>摘要是否忽略限制條件</li></ul></div><div class="verify-box bad"><b>常見失敗</b><ul><li>把推論寫成文件結論</li><li>表格數字缺少單位</li><li>多份文件來源混在一起</li></ul></div></div>
+            <div class="workflow-verdict"><strong>付費值不值得：</strong>長文件、多檔案和頻繁分析更依賴額度；單份短 PDF 先用免費版測讀取品質即可。</div>
+          </div>
+        </article>
+
+        <article class="workflow" id="workflow-image">
+          <div class="workflow-head"><span class="tag">工作流 5｜Imagine</span><h3>用「分層修改」提高圖片命中率</h3><p>不要一次塞滿風格、人物、文字、構圖和光線；先鎖定構圖，再逐輪修改，通常更穩。</p></div>
+          <div class="workflow-body">
+            <div class="workflow-meta"><div class="mini"><b>輸入</b><span>用途＋畫面需求</span></div><div class="mini"><b>輸出</b><span>主視覺＋修改版本</span></div><div class="mini"><b>適合</b><span>封面、電商、社群</span></div></div>
+            <div class="prompt-wrap"><span class="prompt-label">第一輪構圖提示詞</span><button class="prompt-copy" type="button" data-copy-target="prompt-image">複製</button><pre class="prompt" id="prompt-image">建立一張用於「＿＿＿＿」的 16:9 主視覺。
+主體：＿＿＿＿
+場景：＿＿＿＿
+構圖：主體位於畫面左／右側，保留另一側 40% 乾淨留白給標題
+光線：＿＿＿＿
+質感：寫實、專業、乾淨，不要過度塑膠感
+限制：不要加入任何文字、浮水印、額外手指或重複物件
+
+先提供 4 個構圖方向，不要同時改變主體身份與畫面風格。</pre></div>
+            <div class="callout info"><strong>第二輪怎麼改：</strong>每次只改一個維度，例如「保持人物與構圖不變，只把背景改成深藍科技感」，不要整段提示詞重寫。需要中文字時，建議最後再用 Canva、Figma 或圖片編輯軟體排版。</div>
+            <div class="verify"><div class="verify-box good"><b>成品檢查</b><ul><li>縮圖後主體是否仍清楚</li><li>是否保留標題安全區</li><li>人物手部與文字有無瑕疵</li></ul></div><div class="verify-box bad"><b>常見失敗</b><ul><li>一次要求太多相互衝突元素</li><li>第一輪就要求大量中文字</li><li>每次修改導致人物變臉</li></ul></div></div>
+            <div class="workflow-verdict"><strong>付費值不值得：</strong>偶爾做一張圖不一定需要付費；大量做封面、商品素材或多版本測試時，生成額度才是關鍵。</div>
+          </div>
+        </article>
+
+        <article class="workflow" id="workflow-video">
+          <div class="workflow-head"><span class="tag">工作流 6｜短影音</span><h3>從熱門題材到 30 秒短片的六步流程</h3><p>讓 Grok 負責研究、腳本和分鏡，把真正剪輯交給 CapCut Pro，避免每個工具都做一半。</p></div>
+          <div class="workflow-body">
+            <div class="workflow-meta"><div class="mini"><b>輸入</b><span>主題＋觀眾</span></div><div class="mini"><b>輸出</b><span>腳本＋分鏡＋剪輯表</span></div><div class="mini"><b>適合</b><span>Reels／Shorts</span></div></div>
+            <div class="prompt-wrap"><span class="prompt-label">完整提示詞</span><button class="prompt-copy" type="button" data-copy-target="prompt-video">複製</button><pre class="prompt" id="prompt-video">我要製作一支 30 秒、9:16 的繁體中文短片，主題是「＿＿＿＿」，觀眾是「＿＿＿＿」。
+
+請依序完成：
+1. 先找出最近可驗證的 3 個熱門角度，附來源。
+2. 為每個角度寫一個 3 秒內能說完的開場鉤子。
+3. 選出最具體、不誇張的一個角度，寫成 75–95 字口播稿。
+4. 拆成 6 個鏡頭，列出秒數、畫面、字幕、轉場和音效。
+5. 為每鏡產生一個 Grok Imagine 畫面提示詞。
+6. 最後輸出 CapCut 剪輯清單、封面標題與貼文說明。
+
+限制：不要捏造數字；無法確認的資訊要明確標示。</pre></div>
+            <div class="verify"><div class="verify-box good"><b>成品檢查</b><ul><li>前三秒是否直接交代利益</li><li>口播能否在時限內讀完</li><li>來源與畫面授權是否清楚</li></ul></div><div class="verify-box bad"><b>常見失敗</b><ul><li>鉤子太誇張，正文無法兌現</li><li>分鏡內容多到看不懂</li><li>AI 畫面風格不一致</li></ul></div></div>
+            <div class="workflow-verdict"><strong>付費值不值得：</strong>只做腳本可先免費；大量生成圖片／影片版本時，付費額度和穩定工作流更重要。</div>
+          </div>
+        </article>
+
+        <article class="workflow" id="workflow-code">
+          <div class="workflow-head"><span class="tag">工作流 7｜Grok Build CLI Agent</span><h3>從「解釋錯誤」升級成「規畫、修改、測試與審查」</h3><p>聊天模式適合問單一問題；Grok Build 的價值在於它能看見整個 repository，操作終端機並保留多步驟任務脈絡。</p></div>
+          <div class="workflow-body">
+            <div class="workflow-meta"><div class="mini"><b>輸入</b><span>專案＋可驗證目標</span></div><div class="mini"><b>輸出</b><span>Plan＋diff＋測試結果</span></div><div class="mini"><b>適合</b><span>工程師、站長、維護者</span></div></div>
+            <div class="prompt-wrap"><span class="prompt-label">完整 CLI Agent 任務</span><button class="prompt-copy" type="button" data-copy-target="prompt-code">複製</button><pre class="prompt" id="prompt-code">請先閱讀目前 repository 的結構、README、套件版本、測試指令與專案規則。
+
+任務：修復「＿＿＿＿」，驗收條件是「＿＿＿＿」。
+
+執行規則：
+1. 先重現問題並保存錯誤輸出，不要立即改碼。
+2. 使用 Plan Mode 列出根因假設、驗證方法、預計修改檔案與風險。
+3. 資訊不足時先問我最多 3 個關鍵問題。
+4. 等我核准後再修改；只做最小必要 diff。
+5. 為錯誤新增會先失敗、修正後通過的測試。
+6. 執行 lint、type check、單元測試與本任務相關的整合測試。
+7. 審查 git diff，指出可能副作用、資安風險和相容性問題。
+8. 不要 push、deploy、刪除資料或更改 secrets，除非我另外明確核准。
+9. 最後輸出：根因、修改檔案、測試證據、未解風險與回復指令。</pre></div>
+            <div class="callout info"><strong>長任務怎麼交辦：</strong>在確認目標、驗收條件與安全界線後，可使用 <code>/goal 修復＿＿＿＿並讓所有相關測試通過</code>；期間用 <code>/goal status</code> 查看進度，需要介入時用 pause／resume。多專案並行則用 <code>grok dashboard</code>。</div>
+            <div class="verify"><div class="verify-box good"><b>合併前確認</b><ul><li>測試是否真的覆蓋原始錯誤</li><li>diff 是否只改必要範圍</li><li>沒有洩漏 token、環境變數或私有資料</li><li>人工閱讀關鍵路徑與 deploy 變更</li></ul></div><div class="verify-box bad"><b>常見失敗</b><ul><li>沒有重現就開始猜根因</li><li>開 auto-approve 後離開電腦</li><li>只相信 agent 的測試摘要，沒有看輸出</li><li>共享帳號直接讀取未公開程式庫</li></ul></div></div>
+            <div class="workflow-verdict"><strong>付費值不值得：</strong>官方目前提供免費試用，適合先確認 Grok Build 是否適合你的技術棧。當你需要較長 session、平行 subagents、頻繁 repository 稽核或把 headless agent 放進自動化流程，額度、帳號控制與資料邊界才是付費決策重點。</div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section" id="free-vs-paid">
+        <h2><span class="num">5</span>Grok 免費版、SuperGrok 與第三方方案怎麼比較？</h2>
+        <p>不要只比較「有沒有功能」。2026 年之後更重要的是每週額度如何分配：文字聊天通常較省，影片生成與長時間 coding agent 會消耗更多。重度使用者選錯方案，最常遇到的不是功能不能開，而是額度太快用完。</p>
+        <div class="table-wrap" role="region" aria-label="Grok 免費版與訂閱方案比較" tabindex="0">
+          <table class="compare">
+            <thead><tr><th>比較項目</th><th>Grok 免費版</th><th>官方付費方案</th><th>PremLogin 共享</th><th>PremLogin 獨享</th></tr></thead>
+            <tbody>
+              <tr><td>適合對象</td><td>偶爾使用、先測需求</td><td>高頻使用、重視帳號控制</td><td class="recommended">預算優先、公開資料用途</td><td>希望較低門檻又重視隔離</td></tr>
+              <tr><td>帳號控制</td><td>自己的帳號</td><td>自己的帳號</td><td>依共享規則使用</td><td>依交付規格使用</td></tr>
+              <tr><td>Grok Build CLI Agent</td><td>官方目前可免費試，額度依帳號</td><td>較適合長任務與私有專案</td><td>不可預設支援；購買前確認登入與額度</td><td>仍需確認交付方式，敏感程式碼優先自有帳號</td></tr>
+              <tr><td>額度感受</td><td>較容易遇到限制</td><td>依所選方案提供較高每週額度</td><td>可能受其他使用者影響</td><td>通常較可預期，仍依商品規格</td></tr>
+              <tr><td>隱私與長期專案</td><td>較適合</td><td>較適合</td><td>不適合敏感資料</td><td>仍要確認交付方式與平台規則</td></tr>
+              <tr><td>售後窗口</td><td>xAI</td><td>xAI／購買平台</td><td>PremLogin</td><td>PremLogin</td></tr>
+              <tr><td>價格</td><td>免費起用</td><td>依地區、平台與方案即時顯示</td><td>查核時 12 個月方案顯示 US$9.07／月</td><td>依商品頁期限與庫存</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="meta">價格查核日：2026-07-15。官方消費者方案可能依地區、付款平台與促銷變動，本文不把單一價格寫成永久定價；請以官方 plans／結帳頁及 PremLogin 商品頁為準。</p>
+      </section>
+
+      <section class="section" id="plan-quiz">
+        <h2><span class="num">6</span>60 秒方案選擇器：回答三題就知道先從哪裡開始</h2>
+        <div class="decision-tree">
+          <h3>不用註冊、不會上傳答案</h3>
+          <p>這個選擇器只在瀏覽器內運作，目的是先排除不適合共享方案的情境。</p>
+          <form id="plan-form">
+            <div class="quiz-grid">
+              <div class="quiz-q"><strong>1. 你會輸入公司、客戶、個資或未公開內容嗎？</strong><label><input type="radio" name="sensitive" value="yes" required> 會</label><label><input type="radio" name="sensitive" value="no"> 不會</label></div>
+              <div class="quiz-q"><strong>2. 你預計多久使用一次？</strong><label><input type="radio" name="frequency" value="low" required> 每週 1–2 次以下</label><label><input type="radio" name="frequency" value="high"> 每週 3 次以上</label></div>
+              <div class="quiz-q"><strong>3. 你會大量生成影片、使用 Grok Build CLI 或執行長時間代理任務嗎？</strong><label><input type="radio" name="heavy" value="yes" required> 會</label><label><input type="radio" name="heavy" value="no"> 不會</label></div>
+            </div>
+            <button class="quiz-btn" type="submit">顯示建議方案</button>
+            <div class="quiz-result" id="plan-result" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </section>
+
+      <section class="section" id="premlogin">
+        <h2><span class="num">7</span>PremLogin 的優點在哪？它比較像「降低試用門檻」，不是官方訂閱替代品</h2>
+        <p>PremLogin 的核心吸引力，是把共享／獨享方案、帳號交付、多種付款方式與中文售後集中在同一個平台。對第一次嘗試 SuperGrok、還不確定自己會不會長期使用的人，這比直接承擔完整訂閱成本更容易開始。</p>
+        <div class="feature-grid">
+          <div class="feature-card"><span class="icon">💰</span><b>共享與獨享可選</b><span>可以依預算、使用頻率和資料敏感度選擇，不必一開始就買最高成本方案。</span></div>
+          <div class="feature-card"><span class="icon">⚡</span><b>下單後查看交付資訊</b><span>購買後可在訂閱介面取得登入資料；缺貨或異常處理依商品和客服規則。</span></div>
+          <div class="feature-card"><span class="icon">💳</span><b>付款方式較多元</b><span>繁中網站對台灣使用者較直覺，實際可用支付方式以結帳頁顯示為準。</span></div>
+          <div class="feature-card"><span class="icon">🛟</span><b>有中文幫助中心</b><span>Grok 專頁列出共享／獨享差異、登入方式與裝置限制，遇到問題較容易找到處理方向。</span></div>
+        </div>
+        <div class="coupon">
+          <div class="label">想先查看 Grok 共享／獨享方案</div>
+          <div class="coupon-code"><code>HJZ001</code><button class="copy-btn" type="button" data-copy="HJZ001">複製折扣碼</button></div>
+          <p>透過專屬連結進入 PremLogin，結帳輸入折扣碼。實際折扣、庫存與適用商品以結帳頁為準。</p>
+          <div class="cta-row"><a class="cta js-aff-link" href="https://premlogin.com/?aff=aGxKzlZh" target="_blank" rel="sponsored noopener">查看 PremLogin Grok 方案 →</a></div>
+        </div>
+        <div class="callout warn"><strong>需要知道的界線：</strong>PremLogin 不是 xAI 官方網站，共享帳號的運作方式也可能與原廠帳號規則存在落差。本文不建議在共享帳號輸入個資、公司文件、客戶資料、未公開程式碼或其他敏感內容。若你是為 Grok Build CLI Agent 購買，還要先確認交付帳號能否完成本機登入、是否包含 Build 額度，以及是否允許使用私有 repository。</div>
+      </section>
+
+      <section class="section" id="buy-guide">
+        <h2><span class="num">8</span>PremLogin 購買與 Grok 登入教學</h2>
+        <ol class="steps">
+          <li><strong>進入指定連結：</strong>從本文的 PremLogin 聯盟連結進入平台，搜尋 Grok 或開啟 Super Grok 商品頁。</li>
+          <li><strong>選擇共享或獨享：</strong>先確認 3 人揪團和獨享帳號的差異，再選 3、6 或 12 個月期限。</li>
+          <li><strong>核對最終價格：</strong>結帳輸入優惠碼 <strong>HJZ001</strong>，確認折扣、付款方式和總金額後再付款。</li>
+          <li><strong>取得登入資料：</strong>完成下單後到「我的訂閱」查看帳號資訊；實際交付時間依庫存與頁面說明。</li>
+          <li><strong>依規則登入：</strong>使用交付的電子郵件與密碼登入 Grok，不修改密碼、信箱、MFA、付款方式或安全設定。</li>
+          <li><strong>先做低風險測試：</strong>第一次先用公開資料執行本文的事件研究或 SEO 工作流；想用 CLI Agent，先拿公開範例 repository 測試登入、Plan Mode、diff 與額度，不要直接連公司專案。</li>
+        </ol>
+        <div class="callout info"><strong>裝置提醒：</strong>PremLogin 幫助中心目前提醒同類型裝置只登入一台，避免多地或多裝置同時使用造成登入衝突。購買後請以最新商品規則為準。</div>
+        <div class="cta-row"><a class="cta js-aff-link" href="https://premlogin.com/?aff=aGxKzlZh" target="_blank" rel="sponsored noopener">使用 HJZ001 前往查看方案</a><button class="cta secondary copy-btn" type="button" data-copy="HJZ001">只複製折扣碼</button></div>
+      </section>
+
+      <section class="section" id="privacy">
+        <h2><span class="num">9</span>共享帳號使用守則：省錢可以，別把資料風險一起打包</h2>
+        <ol>
+          <li><strong>只處理公開或不敏感內容：</strong>研究公開新聞、寫一般文案、測提示詞都可以；客戶資料、履歷、合約和內部財務不要上傳。</li>
+          <li><strong>使用私密／臨時對話：</strong>若商品說明提供相關模式，優先使用；但不要把它理解成絕對的企業級隔離。</li>
+          <li><strong>立即備份重要產出：</strong>將腳本、報告、Prompt 和圖片保存到自己的裝置或雲端，不把共享帳號當長期知識庫。</li>
+          <li><strong>不修改帳號安全資料：</strong>密碼、信箱、MFA、付款方式與帳號設定都依平台規則使用。</li>
+          <li><strong>留意共用額度：</strong>影片、圖片和長程式任務可能快速消耗每週額度；共享帳號的可用量不一定每天相同。</li>
+        </ol>
+        <p>一句話判斷：<strong>這份資料若外流會讓你需要向別人道歉，就不要放進共享帳號。</strong></p>
+      </section>
+
+      <section class="bonus-section section" id="creator-bonus" aria-labelledby="creator-title">
+        <div class="bonus-kicker">🎬 同場加映：影音創作者的破圈工作流</div>
+        <h2 id="creator-title">Grok × CapCut Pro：從 X 熱點到可發布短片</h2>
+        <p>真正省時間的做法不是讓 AI 一鍵生出成片，而是把各工具放在擅長的位置：Grok 負責研究、腳本、分鏡和素材指令，CapCut Pro 負責字幕、節奏、畫面調整與輸出。</p>
+        <div class="creator-flow" aria-label="Grok 與 CapCut Pro 短影音流程">
+          <div class="flow-card"><span>1</span><b>找可驗證的題材</b><p>用 Grok 搜尋近期趨勢，列出來源、觀眾痛點和三個不誇張的切角。</p></div>
+          <div class="flow-card"><span>2</span><b>完成腳本與分鏡</b><p>寫 30 秒口播、六鏡分鏡、Imagine 素材提示詞與字幕重點。</p></div>
+          <div class="flow-card"><span>3</span><b>CapCut 後製輸出</b><p>完成自動字幕、背景移除、畫質調整、節奏剪輯和 9:16 輸出。</p></div>
+        </div>
+        <div class="callout good"><strong>最實際的產能提升：</strong>建立固定模板後，每次只替換題材、資料和畫面，不用從空白時間軸重新開始。Grok 解決「今天拍什麼」，CapCut 解決「怎麼快速發出去」。</div>
+        <p>想直接使用前面的短影音提示詞，可回到 <a href="#workflow-video">工作流 6</a>。PremLogin 也提供 CapCut 相關方案；價格與功能請以商品頁為準。</p>
+      </section>
+
+      <section class="section" id="faq">
+        <h2><span class="num">10</span>Grok 教學與訂閱常見問題</h2>
+        <details><summary>Grok 免費版夠用嗎？</summary><p>偶爾聊天、搜尋公開資料、測試提示詞或做少量內容發想，免費版通常足夠。當你的工作需要高頻研究、反覆生成視覺、長文件或 Grok Build，才有必要評估付費。</p></details>
+        <details><summary>Grok Build CLI Agent 是什麼？怎麼安裝？</summary><p>它是 xAI 的終端機 coding agent，可讀取 repository、建立計畫、修改檔案、執行指令與測試，也支援 Subagents、<code>/goal</code>、Agent Dashboard、Headless 與 ACP。macOS／Linux／WSL 可執行 <code>curl -fsSL https://x.ai/cli/install.sh | bash</code>；Windows PowerShell 可執行 <code>irm https://x.ai/cli/install.ps1 | iex</code>，再到專案目錄執行 <code>grok</code>。</p></details>
+        <details><summary>PremLogin 的 Grok 方案一定能使用 CLI Agent 嗎？</summary><p>不能直接保證。Grok Build 需要在本機完成帳號驗證，實際可用功能、額度和登入方式取決於交付帳號與當下方案。若購買目的主要是 CLI Agent，付款前應向 PremLogin 確認；私有程式庫與敏感資料優先使用自己控制的官方、獨享或企業帳號。</p></details>
+        <details><summary>Grok 和 ChatGPT 最大差別是什麼？</summary><p>兩者都能聊天、研究與生成內容。Grok 的辨識度在即時網路和 X 公開討論的整合，以及近年快速擴張的 Imagine、Skills、Connectors 和 Grok Build。實際選擇仍應以你的工作流和輸出品質為準。</p></details>
+        <details><summary>SuperGrok 現在怎麼計算額度？</summary><p>xAI 官方 FAQ 說明，2026 年 6 月起付費使用量逐步改為每週共用額度池，可跨 Chat、Imagine、Voice、Build 等產品使用。不同任務耗用量不同，影片和長時間程式任務通常較高。</p></details>
+        <details><summary>官方 SuperGrok 多少錢？</summary><p>消費者方案會依地區、付款平台、稅費、方案層級和促銷即時顯示。為避免把動態價格寫成永久定價，請直接查看 grok.com/plans 或登入後的結帳頁。</p></details>
+        <details><summary>PremLogin 的 Grok 共享方案目前多少錢？</summary><p>本文查核時，12 個月 3 人揪團方案頁面顯示 US$9.07／月、合計 US$108.85。價格、庫存和方案內容可能調整，請以點入後的即時頁面為準。</p></details>
+        <details><summary>共享帳號可以放私人資料嗎？</summary><p>不建議。共享帳號只適合公開資料、一般文案和低敏感度創作。個資、客戶資料、公司文件、合約、未公開程式碼與任何外流會造成損失的內容，都應使用自己的官方、獨享或企業帳號。</p></details>
+        <details><summary>Grok 可以直接做短影片嗎？</summary><p>Grok Imagine 支援影片生成，但實際時長、畫質與額度會依方案及產品更新而不同。更穩定的流程是用 Grok 找題材、寫腳本與分鏡，再到 CapCut Pro 完成字幕和剪輯。</p></details>
+        <details><summary>折扣碼 HJZ001 怎麼使用？</summary><p>透過本文 PremLogin 專屬連結進入網站，選好商品後在結帳頁輸入 HJZ001。實際折扣、適用商品與條件，以結帳畫面顯示為準。</p></details>
+      </section>
+
+      <section class="section" id="conclusion">
+        <h2><span class="num">11</span>最後建議：先證明 Grok 能替你省時間，再決定怎麼付費</h2>
+        <p>最聰明的訂閱方式不是先找最低月費，而是先從本文挑一套工作流，連續使用一週。若 Grok 能穩定替你省下研究、整理或剪輯前期時間，再考慮升級；若你只是偶爾聊天，免費版通常就夠了。</p>
+        <p>想降低第一次試用成本、而且主要處理公開資料，可比較 PremLogin 的共享與獨享方案；涉及敏感資料、每天大量工作或長期專案，則優先考慮自己的官方或獨享帳號。</p>
+        <div class="coupon">
+          <div class="label">PremLogin 專屬優惠折扣碼</div>
+          <div class="coupon-code"><code>HJZ001</code><button class="copy-btn" type="button" data-copy="HJZ001">複製代碼</button></div>
+          <p>先看清楚共享／獨享規格、使用限制和最終價格，再決定是否購買。</p>
+          <div class="cta-row"><a class="cta js-aff-link" href="https://premlogin.com/?aff=aGxKzlZh" target="_blank" rel="sponsored noopener">前往 PremLogin 比較 Grok 方案 →</a></div>
+        </div>
+      </section>
+
+      <section class="disclaimer-section" id="disclaimer" aria-labelledby="disclaimer-title">
+        <h2 id="disclaimer-title"><span class="num">12</span>免責聲明與聯盟關係說明</h2>
+        <p class="disclaimer-intro">本文旨在提供 Grok 功能教學、訂閱方案比較與一般使用建議，不構成法律、財務、資訊安全或任何形式的購買保證。使用 AI 與第三方訂閱服務前，請依自己的需求、所在地規範與可承受風險做出判斷。</p>
+        <ul class="disclaimer-list">
+          <li><strong>非官方合作：</strong>本站不是 xAI、Grok、CapCut 或 PremLogin 的官方網站、代理商或授權經銷商；文中商標與產品名稱皆屬各自權利人所有。</li>
+          <li><strong>資訊可能變動：</strong>AI 功能、模型版本、額度、價格、庫存、交付方式、退款規則與服務條款可能隨時調整，最終以官方網站、商品頁、結帳畫面及使用者實際帳號介面為準。</li>
+          <li><strong>第三方與共享方案風險：</strong>PremLogin 為第三方服務平台。共享或代購形式可能受到原服務條款、登入限制、額度共用、帳號穩定性與售後規則影響；本站不經手付款、帳號交付或售後處理，也無法保證服務持續可用或帳號不受限制。</li>
+          <li><strong>AI 回答仍需查證：</strong>Grok 可能產生錯誤、過時、偏誤或不存在的資訊。涉及新聞、醫療、法律、投資、資安、商業決策或公開發布內容時，請回查第一手來源並由合適的專業人士審核。</li>
+          <li><strong>資料與隱私責任：</strong>請勿在共享帳號或不明交付環境輸入個資、客戶資料、公司機密、付款資訊、合約、未公開程式碼及其他敏感內容。使用者應自行備份產出並管理帳號與裝置安全。</li>
+          <li><strong>聯盟行銷揭露：</strong>本文含 PremLogin 聯盟連結；透過連結或折扣碼 <strong>HJZ001</strong> 購買時，本站可能獲得分潤，通常不會因此提高你的售價。折扣是否成立、適用商品與最終金額，以結帳頁為準。</li>
+          <li><strong>不保證特定成果：</strong>本文提供的提示詞、工作流與工具組合不保證能帶來相同品質、流量、收入或工作效率，結果會受模型版本、資料品質、提示方式與人工判斷影響。</li>
+        </ul>
+        <p class="disclaimer-note">繼續使用本文提供的連結、提示詞或第三方服務，即表示你理解相關限制，並自行承擔使用與購買決策所產生的責任。對條款、隱私或適法性有疑問時，應先查閱服務提供者的最新政策或尋求專業意見。</p>
+      </section>
+
+      <section class="related-reading" id="related-reading" aria-labelledby="related-title">
+        <h2 id="related-title">延伸閱讀：Claude Pro 教學與訂閱方案</h2>
+        <a class="related-card" href="https://polik18.github.io/PremLogin/" aria-label="閱讀 Claude Pro 升級教學">
+          <img class="related-logo" src="assets/c-le-you-logo.jpg" alt="C樂遊" width="66" height="66" loading="lazy">
+          <span class="related-copy"><b>2026 Claude Pro 升級教學</b><span>比較 Claude 的長文、程式與訂閱方式，並整理 PremLogin 共享方案使用守則。</span></span>
+          <span class="related-arrow" aria-hidden="true">→</span>
+        </a>
+      </section>
+
+      <section class="sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">官方資料來源與查核日期</h2>
+        <ol>
+          <li><a href="https://x.ai/news/grok-4-5" target="_blank" rel="noopener">xAI：Introducing Grok 4.5</a> — 模型定位與發布資訊。</li>
+          <li><a href="https://x.ai/grok" target="_blank" rel="noopener">xAI Grok 產品頁</a> — 即時搜尋、Imagine、Voice、檔案分析等功能。</li>
+          <li><a href="https://docs.x.ai/grok/faq" target="_blank" rel="noopener">xAI Grok FAQ</a> — 每週共用額度池、加購額度與帳號問題。</li>
+          <li><a href="https://x.ai/news/grok-skills" target="_blank" rel="noopener">xAI：Skills</a> — 持久工作規則、文件與工作流程。</li>
+          <li><a href="https://docs.x.ai/grok/connectors" target="_blank" rel="noopener">xAI：Connectors</a> — 外部工具與資料來源連接。</li>
+          <li><a href="https://x.ai/news/grok-build-cli" target="_blank" rel="noopener">xAI：Introducing Grok Build</a> — 計畫、審核、diff 與終端機代理。</li>
+          <li><a href="https://x.ai/cli" target="_blank" rel="noopener">xAI：Grok Build CLI</a> — Grok 4.5、Plan Mode、Subagents、Skills、Plugins、MCP 與免費試用說明。</li>
+          <li><a href="https://docs.x.ai/build/overview" target="_blank" rel="noopener">xAI Docs：Grok Build Overview</a> — macOS／Linux／WSL、Windows 安裝、TUI 與 Headless 快速開始。</li>
+          <li><a href="https://x.ai/news/introducing-goal" target="_blank" rel="noopener">xAI：Introducing /goal</a> — 長時間自主執行及 status、pause、resume、clear。</li>
+          <li><a href="https://x.ai/news/agent-dashboard" target="_blank" rel="noopener">xAI：Agent Dashboard</a> — 多 session 平行管理與 <code>grok dashboard</code>。</li>
+          <li><a href="https://docs.x.ai/build/cli/headless-scripting" target="_blank" rel="noopener">xAI Docs：Headless &amp; Scripting</a> — JSON 輸出、腳本與 <code>grok agent stdio</code> ACP 整合。</li>
+          <li><a href="https://docs.x.ai/build/features/skills-plugins-marketplaces" target="_blank" rel="noopener">xAI Docs：Skills、Plugins &amp; Marketplaces</a> — AGENTS.md、Claude Code 相容、Plugins、MCP 與 Subagents。</li>
+          <li><a class="js-aff-link" href="https://premlogin.com/?aff=aGxKzlZh" target="_blank" rel="sponsored noopener">PremLogin Grok 方案入口</a> — 共享／獨享方案、期限與查核時價格。</li>
+          <li><a class="js-aff-link" href="https://premlogin.com/?aff=aGxKzlZh" target="_blank" rel="sponsored noopener">PremLogin Grok 方案與說明入口</a> — 登入、裝置與使用規則。</li>
+          <li><a href="https://x.ai/legal/terms-of-service" target="_blank" rel="noopener">xAI 消費者服務條款</a> — 帳號與服務使用規則。</li>
+        </ol>
+        <p>最後查核：2026-07-15。AI 功能、額度、方案名稱與價格變動快速，請以各平台當下頁面和登入後介面為準。</p>
+      </section>
+    </div>
+  </article>
+
+  <aside class="sidebar" aria-label="文章側欄">
+    <div class="side-card"><h2>文章快速導覽</h2><ul class="side-nav"><li><a href="#quick-answer">30 秒結論</a></li><li><a href="#new-2026">2026 新功能</a></li><li><a href="#grok-build-cli">CLI Agent 教學</a></li><li><a href="#workflows">7 套工作流</a></li><li><a href="#free-vs-paid">方案比較</a></li><li><a href="#plan-quiz">方案選擇器</a></li><li><a href="#premlogin">PremLogin 優點</a></li><li><a href="#buy-guide">購買教學</a></li><li><a href="#creator-bonus">Grok × CapCut</a></li><li><a href="#faq">常見問題</a></li><li><a href="#disclaimer">免責聲明</a></li></ul></div>
+    <div class="side-card side-summary"><h2>選方案小抄</h2><div><b>先用免費版</b><span>每週使用 1–2 次、只是偶爾聊天或查資料。</span></div><div><b>考慮共享</b><span>預算優先、只處理公開資料、想先測完整工作流。</span></div><div><b>官方或獨享</b><span>敏感資料、高頻使用、影片或程式長任務。</span></div></div>
+    <div class="side-card"><h2>本文可直接帶走</h2><p>Grok Build CLI 安裝與安全清單、7 套可複製提示詞、方案比較表與互動選擇器。</p></div>
+  </aside>
+</main>
+
+<div class="mobile-cta" role="region" aria-label="PremLogin 優惠">
+  <div><b>折扣碼 HJZ001</b><span>先比較共享／獨享規格</span></div>
+  <a class="cta js-aff-link" href="https://premlogin.com/?aff=aGxKzlZh" target="_blank" rel="sponsored noopener">查看方案</a>
+</div>
+<button class="back-top" type="button" aria-label="回到頁面頂端">↑</button>
+
+<footer class="footer">
+  <p><strong>C樂遊 AI 工具實戰專欄</strong>｜本文含聯盟行銷連結｜<a href="#disclaimer">免責聲明</a></p>
+  <p>Grok、xAI、CapCut、PremLogin 及相關商標皆屬各自權利人所有；本站與上述品牌無代理或官方合作關係。</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/counterapi/dist/counter.browser.min.js" defer></script>
+<script>
+(function(){
+  'use strict';
+  const AFFILIATE_URL='https://premlogin.com/?aff=aGxKzlZh';
+  document.querySelectorAll('.js-aff-link').forEach(a=>a.href=AFFILIATE_URL);
+
+  async function copyText(text,btn){
+    const old=btn.textContent;
+    try{await navigator.clipboard.writeText(text)}catch(e){
+      const area=document.createElement('textarea');area.value=text;area.style.position='fixed';area.style.opacity='0';document.body.appendChild(area);area.select();document.execCommand('copy');area.remove();
+    }
+    btn.textContent='已複製 ✓';setTimeout(()=>btn.textContent=old,1500);
+  }
+  document.querySelectorAll('[data-copy]').forEach(btn=>btn.addEventListener('click',()=>copyText(btn.dataset.copy,btn)));
+  document.querySelectorAll('[data-copy-target]').forEach(btn=>btn.addEventListener('click',()=>{
+    const target=document.getElementById(btn.dataset.copyTarget);if(target)copyText(target.textContent.trim(),btn);
+  }));
+
+  const form=document.getElementById('plan-form');
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const data=new FormData(form), sensitive=data.get('sensitive'), frequency=data.get('frequency'), heavy=data.get('heavy');
+    const out=document.getElementById('plan-result');let title='',body='';
+    if(sensitive==='yes'){
+      title='建議：自己的官方、獨享或商務帳號';
+      body='你的工作涉及敏感資料，帳號控制和資料隔離比省月費重要。不要使用共享方案處理這些內容。';
+    }else if(frequency==='low' && heavy==='no'){
+      title='建議：先用 Grok 免費版';
+      body='先用本文的一套工作流連續測一週。只有真的遇到額度或功能限制，再升級會更划算。';
+    }else if(heavy==='yes'){
+      title='建議：官方付費或獨享方案';
+      body='影片與 Grok Build CLI 的長時間代理任務會快速使用額度，也可能接觸本機程式庫。優先選額度較可預期、帳號控制較完整的官方或獨享方案。';
+    }else{
+      title='建議：可比較 PremLogin 共享方案作為試用入口';
+      body='你的用途屬於高頻但非敏感資料，可先比較共享和獨享成本；使用時仍要備份產出並遵守裝置規則。';
+    }
+    out.innerHTML='<b>'+title+'</b><br>'+body;out.classList.add('show');
+  });
+
+  const back=document.querySelector('.back-top');
+  addEventListener('scroll',()=>back.classList.toggle('show',scrollY>700),{passive:true});
+  back.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+
+  function initCounter(){
+    const el=document.getElementById('view-count');
+    if(typeof Counter==='undefined'){el.textContent='—';return}
+    try{
+      const counter=new Counter({workspace:'c-le-you-grok-premlogin-hjz001'});
+      const action=sessionStorage.getItem('grok-pl-view-counted-v2') ? counter.get('page-views-v2') : counter.up('page-views-v2');
+      action.then(r=>{el.textContent=Number(r.value||0).toLocaleString('zh-TW');sessionStorage.setItem('grok-pl-view-counted-v2','1')}).catch(()=>el.textContent='—');
+      document.querySelectorAll('.js-aff-link').forEach(a=>a.addEventListener('click',()=>counter.up('affiliate-clicks-v2').catch(()=>{})));
+    }catch(e){el.textContent='—'}
+  }
+  if(document.readyState==='complete')initCounter();else addEventListener('load',initCounter,{once:true});
+})();
+</script>
+<script id="_wau_grok_online">
+var _wau = window._wau || [];
+_wau.push(["dynamic", "grokpl2026tw", "grok-online", "075985ffffff", "small"]);
+</script>
+<script async src="https://waust.at/d.js"></script>
+</body>
+</html>
