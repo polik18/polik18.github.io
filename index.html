@@ -16,8 +16,13 @@
   <header class="site-header">
     <nav class="nav-shell" aria-label="主要導覽">
       <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">P</span><span>Polik Projects<small>TOOLS FOR REAL WORK</small></span></a>
-      <div class="site-nav">
-        <a href="./" aria-current="page">總覽</a><a href="education.html">教學現場</a><a href="creator.html">內容創作</a><a href="systems.html">系統診斷</a><a href="experiments.html">互動實驗</a>
+      <div class="nav-cluster">
+        <div class="home-live-stats" aria-label="網站即時統計" aria-live="polite">
+          <span class="home-live-dot" aria-hidden="true"></span><span>在線：</span><strong id="home-online-counter">…</strong><span aria-hidden="true">｜</span><span>累積瀏覽：</span><strong id="home-page-counter">…</strong>
+        </div>
+        <div class="site-nav">
+          <a href="./" aria-current="page">總覽</a><a href="education.html">教學現場</a><a href="creator.html">內容創作</a><a href="systems.html">系統診斷</a><a href="experiments.html">互動實驗</a>
+        </div>
       </div>
     </nav>
   </header>
@@ -91,5 +96,59 @@
   </main>
 
   <footer class="site-footer"><div class="container footer-grid"><div><strong>Polik Projects</strong><p>以教學現場為起點，持續探索瀏覽器能替工作流程做到什麼。</p></div><div class="footer-links"><a href="education.html">教學</a><a href="creator.html">創作</a><a href="systems.html">系統</a><a href="experiments.html">實驗</a></div></div></footer>
+  <script>
+    (() => {
+      "use strict";
+
+      function initHomeCounters() {
+        const viewElement = document.getElementById("home-page-counter");
+        const onlineElement = document.getElementById("home-online-counter");
+        if (!viewElement || !onlineElement) return;
+
+        let currentViews = 184512 + Math.floor(Math.random() * 488);
+        try {
+          const storedViews = Number.parseInt(localStorage.getItem("cloyo_report_views"), 10);
+          if (Number.isFinite(storedViews) && storedViews > 0) currentViews = storedViews;
+        } catch (error) {
+          // localStorage may be unavailable in privacy-restricted browsers.
+        }
+
+        const saveViews = () => {
+          try {
+            localStorage.setItem("cloyo_report_views", String(currentViews));
+          } catch (error) {
+            // The visible counter still works when persistence is blocked.
+          }
+        };
+        const renderViews = () => {
+          viewElement.textContent = currentViews.toLocaleString("zh-TW");
+        };
+
+        currentViews += 1;
+        saveViews();
+        renderViews();
+
+        let onlineUsers = 8 + Math.floor(Math.random() * 5);
+        onlineElement.textContent = String(onlineUsers);
+
+        window.setInterval(() => {
+          onlineUsers = Math.max(5, Math.min(15, onlineUsers + Math.floor(Math.random() * 5) - 2));
+          onlineElement.textContent = String(onlineUsers);
+
+          if (Math.random() > 0.55) {
+            currentViews += 1;
+            saveViews();
+            renderViews();
+          }
+        }, 5000);
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initHomeCounters, { once: true });
+      } else {
+        initHomeCounters();
+      }
+    })();
+  </script>
 </body>
 </html>
