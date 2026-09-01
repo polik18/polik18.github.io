@@ -1,56 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Canonical public project pages only. lastmod dates come from page-level Git history. -->
   <url>
     <loc>https://polik18.github.io/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-05-17</lastmod>
   </url>
-
   <url>
-    <loc>https://polik18.github.io/class/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://polik18.github.io/Audio-Visualizer-3D/</loc>
+    <lastmod>2026-05-17</lastmod>
   </url>
-
   <url>
-    <loc>https://polik18.github.io/class/pro</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://polik18.github.io/CyberSnake/</loc>
+    <lastmod>2026-05-28</lastmod>
   </url>
-
-  <url>
-    <loc>https://polik18.github.io/class/exam</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
   <url>
     <loc>https://polik18.github.io/Screenrecorder/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-05-17</lastmod>
   </url>
-
+  <url>
+    <loc>https://polik18.github.io/SeatPlanner/</loc>
+    <lastmod>2026-09-01</lastmod>
+  </url>
   <url>
     <loc>https://polik18.github.io/Webcoding/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-05-20</lastmod>
   </url>
-
-  <url>
-    <loc>https://polik18.github.io/polik-recovery/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
   <url>
     <loc>https://polik18.github.io/YieldVitals/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-06-18</lastmod>
   </url>
-
+  <url>
+    <loc>https://polik18.github.io/class/</loc>
+    <lastmod>2026-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/class/exam.html</loc>
+    <lastmod>2026-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/class/pro.html</loc>
+    <lastmod>2026-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/polik-recovery/</loc>
+    <lastmod>2026-06-05</lastmod>
+  </url>
   <url>
     <loc>https://polik18.github.io/ytshort/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-05-17</lastmod>
   </url>
 </urlset>
