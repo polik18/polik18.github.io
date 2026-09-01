@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#174f3c">
+  <meta name="description" content="Polik 系統工具完整介紹：YieldVitals 瀏覽器硬體效能診斷與 Polik Recovery 唯讀資料救援專案。">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://polik18.github.io/systems.html">
+  <link rel="icon" href="assets/c-le-you-logo.jpg">
+  <link rel="stylesheet" href="assets/portfolio.css">
+  <title>效能診斷與資料救援｜Polik Projects</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="site-header"><nav class="nav-shell" aria-label="主要導覽"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true">P</span><span>Polik Projects<small>TOOLS FOR REAL WORK</small></span></a><div class="site-nav"><a href="./">總覽</a><a href="education.html">教學現場</a><a href="creator.html">內容創作</a><a href="systems.html" aria-current="page">系統診斷</a><a href="experiments.html">互動實驗</a></div></nav></header>
+
+  <main id="main">
+    <section class="page-hero"><div class="container"><div class="breadcrumb"><a href="./">專案總覽</a> / 系統診斷</div><div class="page-hero-grid"><div><p class="eyebrow">Category 03 · Systems</p><h1>先看懂問題，再選擇<em>安全的下一步。</em></h1></div><p class="page-summary">系統類專案不只顯示分數或按下掃描，而是把硬體瓶頸與救援風險翻譯成能採取行動的資訊。診斷重視可解釋性；救援則把避免二次傷害放在第一位。</p></div></div></section>
+
+    <section class="section"><div class="container project-stack">
+      <article class="project-card"><div class="project-index"><span>BENCHMARK</span><strong>01</strong></div><div class="project-content"><h2>YieldVitals</h2><p class="project-lead">一套在瀏覽器中執行的八軸效能與硬體診斷平台。除了跑分，也會整理裝置資訊、指出相對瓶頸，並給出適合不同裝置類型的改善方向。</p><ul class="tag-list"><li>8 軸測試</li><li>Web Worker</li><li>WebGL</li><li>30 國語系</li></ul><ul class="feature-list"><li>CPU 邏輯、字串解析與多核心測試</li><li>RAM 分配、加密吞吐與本機儲存 I/O</li><li>DOM 重繪、WebGL GPU 與網路下載</li><li>辨識核心數、記憶體、GPU 與畫面環境</li><li>用雷達圖呈現長短板與裝置適用情境</li><li>支援複製文字與下載 JSON 原始報告</li></ul><div class="card-actions"><a class="button button-primary" href="https://polik18.github.io/YieldVitals/">開始效能診斷</a></div></div></article>
+
+      <article class="project-card"><div class="project-index"><span>RECOVERY</span><strong>02</strong></div><div class="project-content"><h2>Polik Recovery</h2><p class="project-lead">以「來源磁碟唯讀」為核心原則的資料救援專案。公開頁面提供架構、操作與風險說明，桌面工具針對 NTFS、exFAT、APFS 與檔案特徵掃描建立復原流程。</p><ul class="tag-list"><li>唯讀優先</li><li>NTFS／exFAT／APFS</li><li>Raw Carving</li><li>SHA-256 稽核</li></ul><ul class="feature-list"><li>避免將救援結果寫回來源磁碟</li><li>解析檔案系統結構與虛擬檔案樹</li><li>結構毀損時以檔案特徵進行深度掃描</li><li>支援 PNG、JPEG、PDF、ZIP、MP4 等格式</li><li>救援輸出附雜湊清單供完整性檢查</li><li>提供新手指南與進階架構說明</li></ul><div class="card-actions"><a class="button button-primary" href="https://polik18.github.io/polik-recovery/">閱讀救援指南</a><a class="button button-secondary" href="https://github.com/polik18/polik-recovery/releases">查看 Releases</a></div></div></article>
+    </div></section>
+
+    <section class="section section-tight"><div class="container"><div class="section-head"><p class="section-kicker">Safety notes</p><h2>兩種問題，兩種處理原則</h2></div><div class="use-case-grid"><article class="use-case"><span>效能變慢</span><h3>先建立可比較的基準</h3><p>關閉不必要程式、固定電源與散熱條件，多跑幾次 YieldVitals，避免用單次結果直接判定硬體故障。</p></article><article class="use-case"><span>檔案遺失</span><h3>立即停止寫入來源</h3><p>不要在原磁碟安裝工具、下載檔案或存回救援結果；新的寫入可能覆蓋仍可恢復的資料。</p></article><article class="use-case"><span>高價值資料</span><h3>先評估再動手</h3><p>異音、無法辨識、加密或物理損壞時，軟體掃描不一定安全，應先考慮專業救援與完整映像。</p></article></div></div></section>
+
+    <section class="section"><div class="container"><div class="section-head"><p class="section-kicker">Keep exploring</p><h2>繼續探索其他分類</h2></div><div class="next-categories"><a href="education.html"><small>01</small><strong>教學現場 →</strong></a><a href="creator.html"><small>02</small><strong>內容創作 →</strong></a><a href="experiments.html"><small>04</small><strong>互動實驗 →</strong></a></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-grid"><div><strong>Polik Projects</strong><p>診斷先求可解釋，救援先保護原始資料。</p></div><div class="footer-links"><a href="./">總覽</a><a href="education.html">教學</a><a href="creator.html">創作</a><a href="experiments.html">實驗</a></div></div></footer>
+</body>
+</html>
