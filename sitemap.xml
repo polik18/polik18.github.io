@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Canonical public project pages only. lastmod dates come from page-level Git history. -->
+  <!-- Canonical public pages only. lastmod dates reflect page-level changes. -->
   <url>
     <loc>https://polik18.github.io/</loc>
     <lastmod>2026-05-17</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/PremLogin.html</loc>
+    <lastmod>2026-09-01</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/grok-premlogin.html</loc>
+    <lastmod>2026-09-01</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/Audio-Visualizer-3D/</loc>
@@ -11,7 +19,7 @@
   </url>
   <url>
     <loc>https://polik18.github.io/CyberSnake/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-09-01</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/Screenrecorder/</loc>
