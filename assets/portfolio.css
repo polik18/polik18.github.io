@@ -586,6 +586,10 @@ img {
   font-size: 1.08rem;
 }
 
+.category-home {
+  margin: 18px 0 0 28px;
+}
+
 .breadcrumb {
   margin-bottom: 24px;
   color: var(--muted);
