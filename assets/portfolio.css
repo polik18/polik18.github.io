@@ -744,6 +744,10 @@ img {
   gap: 16px;
 }
 
+.use-case-grid-four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .use-case,
 .article-card {
   padding: 26px;
@@ -888,6 +892,10 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .use-case-grid-four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .project-card {
     grid-template-columns: 150px minmax(0, 1fr);
   }
@@ -944,6 +952,10 @@ img {
   .use-case-grid,
   .article-grid,
   .next-categories {
+    grid-template-columns: 1fr;
+  }
+
+  .use-case-grid-four {
     grid-template-columns: 1fr;
   }
 

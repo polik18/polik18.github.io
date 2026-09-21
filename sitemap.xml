@@ -3,11 +3,11 @@
   <!-- Canonical public pages only. lastmod dates reflect page-level changes. -->
   <url>
     <loc>https://polik18.github.io/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-22</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/education.html</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-22</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/creator.html</loc>
@@ -56,6 +56,10 @@
   <url>
     <loc>https://polik18.github.io/class/</loc>
     <lastmod>2026-09-01</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/class3d-gallery/</loc>
+    <lastmod>2026-09-22</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/class/exam.html</loc>
