@@ -122,6 +122,10 @@ function validSessionId(value) {
     /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value);
 }
 
+function taipeiDay(timestamp = Date.now()) {
+  return new Date(timestamp + 8 * 60 * 60 * 1000).toISOString().slice(0, 10);
+}
+
 async function parseBody(request) {
   try {
     return JSON.parse(await request.text());
@@ -144,6 +148,7 @@ async function recordActivity(request, env) {
   }
 
   const now = Date.now();
+  const today = taipeiDay(now);
   await env.DB.prepare(`
     INSERT INTO site_sessions (session_id, first_seen, last_seen, last_path)
     VALUES (?, ?, ?, ?)
@@ -153,12 +158,18 @@ async function recordActivity(request, env) {
   `).bind(visitorId, now, now, path).run();
 
   if (event === 'pageview') {
-    const inserted = await env.DB.prepare(`
+    const [pageInserted, dailyInserted] = await Promise.all([
+      env.DB.prepare(`
       INSERT OR IGNORE INTO site_session_pages (session_id, path, first_seen)
       VALUES (?, ?, ?)
-    `).bind(sessionId, path, now).run();
+      `).bind(sessionId, path, now).run(),
+      env.DB.prepare(`
+        INSERT OR IGNORE INTO site_daily_visits (visit_day, visitor_id, path, first_seen)
+        VALUES (?, ?, ?, ?)
+      `).bind(today, visitorId, path, now).run()
+    ]);
 
-    if (Number(inserted.meta?.changes || 0) === 1) {
+    if (Number(pageInserted.meta?.changes || 0) === 1) {
       await env.DB.batch([
         env.DB.prepare(`
           UPDATE site_totals
@@ -174,14 +185,35 @@ async function recordActivity(request, env) {
         `).bind(path, now)
       ]);
     }
+
+    if (Number(dailyInserted.meta?.changes || 0) === 1) {
+      await env.DB.batch([
+        env.DB.prepare(`
+          INSERT INTO site_daily_totals (visit_day, total_visits, updated_at)
+          VALUES (?, 1, ?)
+          ON CONFLICT(visit_day) DO UPDATE SET
+            total_visits = total_visits + 1,
+            updated_at = excluded.updated_at
+        `).bind(today, now),
+        env.DB.prepare(`
+          INSERT INTO site_daily_page_totals (visit_day, path, total_visits, updated_at)
+          VALUES (?, ?, 1, ?)
+          ON CONFLICT(visit_day, path) DO UPDATE SET
+            total_visits = total_visits + 1,
+            updated_at = excluded.updated_at
+        `).bind(today, path, now)
+      ]);
+    }
   }
 
   if (Math.random() < 0.01) {
     const staleSessionCutoff = now - 24 * 60 * 60 * 1000;
     const staleDedupeCutoff = now - 90 * 24 * 60 * 60 * 1000;
+    const staleDailyCutoff = taipeiDay(now - 8 * 24 * 60 * 60 * 1000);
     await env.DB.batch([
       env.DB.prepare('DELETE FROM site_sessions WHERE last_seen < ?').bind(staleSessionCutoff),
-      env.DB.prepare('DELETE FROM site_session_pages WHERE first_seen < ?').bind(staleDedupeCutoff)
+      env.DB.prepare('DELETE FROM site_session_pages WHERE first_seen < ?').bind(staleDedupeCutoff),
+      env.DB.prepare('DELETE FROM site_daily_visits WHERE visit_day < ?').bind(staleDailyCutoff)
     ]);
   }
 
@@ -195,12 +227,20 @@ async function readStats(request, env, path = null) {
     ? Math.min(600, Math.max(60, configuredWindow))
     : 120;
   const cutoff = now - windowSeconds * 1000;
+  const today = taipeiDay(now);
 
-  const [totalRow, onlineRow, pageRow] = await Promise.all([
+  const [totalRow, onlineRow, pageRow, todayRow, todayPageRow] = await Promise.all([
     env.DB.prepare("SELECT baseline_views, live_views FROM site_totals WHERE id = 'global'").first(),
     env.DB.prepare('SELECT COUNT(*) AS count FROM site_sessions WHERE last_seen >= ?').bind(cutoff).first(),
     path
       ? env.DB.prepare('SELECT baseline_views, live_views FROM site_page_totals WHERE path = ?').bind(path).first()
+      : Promise.resolve(null),
+    env.DB.prepare('SELECT total_visits FROM site_daily_totals WHERE visit_day = ?').bind(today).first(),
+    path
+      ? env.DB.prepare(`
+          SELECT total_visits FROM site_daily_page_totals
+          WHERE visit_day = ? AND path = ?
+        `).bind(today, path).first()
       : Promise.resolve(null)
   ]);
 
@@ -212,6 +252,9 @@ async function readStats(request, env, path = null) {
     pageViews: path
       ? Number(pageRow?.baseline_views || 0) + Number(pageRow?.live_views || 0)
       : undefined,
+    today,
+    todayVisits: Number(todayRow?.total_visits || 0),
+    todayPageVisits: path ? Number(todayPageRow?.total_visits || 0) : undefined,
     windowSeconds,
     baselineAsOf: env.BASELINE_AS_OF || '2026-10-02',
     asOf: new Date(now).toISOString()
@@ -219,15 +262,20 @@ async function readStats(request, env, path = null) {
 }
 
 async function readPageStats(request, env) {
+  const today = taipeiDay();
   const rows = await env.DB.prepare(`
-    SELECT path, baseline_views, live_views,
-      baseline_views + live_views AS total_views
-    FROM site_page_totals
-    ORDER BY total_views DESC, path ASC
-  `).all();
+    SELECT pages.path, pages.baseline_views, pages.live_views,
+      pages.baseline_views + pages.live_views AS total_views,
+      COALESCE(daily.total_visits, 0) AS today_visits
+    FROM site_page_totals AS pages
+    LEFT JOIN site_daily_page_totals AS daily
+      ON daily.path = pages.path AND daily.visit_day = ?
+    ORDER BY total_views DESC, pages.path ASC
+  `).bind(today).all();
 
   return jsonResponse({
     baselineAsOf: env.BASELINE_AS_OF || '2026-10-02',
+    today,
     pages: rows.results || []
   }, 200, request, env);
 }

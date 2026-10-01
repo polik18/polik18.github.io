@@ -8,6 +8,12 @@
   const SEEN_KEY = 'polik_site_stats_seen_paths';
   const HEARTBEAT_MS = 45_000;
   const numberFormat = new Intl.NumberFormat('zh-TW');
+  const taipeiDayFormat = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Taipei',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  });
 
   function updateText(element, value) {
     if (element && element.textContent !== value) element.textContent = value;
@@ -30,21 +36,25 @@
     return location.pathname === '/index.html' ? '/' : location.pathname;
   }
 
-  function isFirstViewForPath(path) {
+  function nextEventForPath(path) {
     try {
-      const seen = new Set(JSON.parse(sessionStorage.getItem(SEEN_KEY) || '[]'));
-      if (seen.has(path)) return false;
+      const today = taipeiDayFormat.format(new Date());
+      const stored = JSON.parse(sessionStorage.getItem(SEEN_KEY) || '{}');
+      const seen = new Set(stored.day === today && Array.isArray(stored.paths) ? stored.paths : []);
+      if (seen.has(path)) return 'heartbeat';
       seen.add(path);
-      sessionStorage.setItem(SEEN_KEY, JSON.stringify([...seen]));
-      return true;
+      sessionStorage.setItem(SEEN_KEY, JSON.stringify({ day: today, paths: [...seen] }));
+      return 'pageview';
     } catch {
-      return true;
+      return 'pageview';
     }
   }
 
   function render(stats) {
     const onlineTargets = ['home-online-counter', 'online-counter', 'grok-online'];
     const totalTargets = ['home-page-counter', 'page-counter', 'header-view-counter', 'view-count'];
+    const todayGlobalTargets = ['home-today-counter'];
+    const todayPageTargets = ['today-counter', 'grok-today'];
     onlineTargets.forEach(id => {
       const element = document.getElementById(id);
       updateText(element, numberFormat.format(stats.online));
@@ -53,12 +63,19 @@
       const element = document.getElementById(id);
       updateText(element, numberFormat.format(stats.pageViews ?? stats.totalViews));
     });
+    todayGlobalTargets.forEach(id => {
+      updateText(document.getElementById(id), numberFormat.format(stats.todayVisits));
+    });
+    todayPageTargets.forEach(id => {
+      updateText(document.getElementById(id), numberFormat.format(stats.todayPageVisits ?? stats.todayVisits));
+    });
     updateText(document.getElementById('home-page-counter'), numberFormat.format(stats.totalViews));
   }
 
   function renderUnavailable() {
     const ids = ['home-online-counter', 'online-counter', 'grok-online',
-      'home-page-counter', 'page-counter', 'header-view-counter', 'view-count'];
+      'home-page-counter', 'page-counter', 'header-view-counter', 'view-count',
+      'home-today-counter', 'today-counter', 'grok-today'];
     ids.forEach(id => {
       const element = document.getElementById(id);
       if (element) {
@@ -79,6 +96,7 @@
     if (!response.ok) throw new Error(`stats_${response.status}`);
     const stats = await response.json();
     render(stats);
+    return stats;
   }
 
   async function renderPageBreakdown() {
@@ -88,13 +106,19 @@
       const response = await fetch(PAGE_STATS_URL, { cache: 'no-store' });
       if (!response.ok) throw new Error(`page_stats_${response.status}`);
       const payload = await response.json();
-      const viewsByPath = new Map(payload.pages.map(page => [page.path, Number(page.total_views || 0)]));
+      const statsByPath = new Map(payload.pages.map(page => [page.path, {
+        total: Number(page.total_views || 0),
+        today: Number(page.today_visits || 0)
+      }]));
       targets.forEach(element => {
         const paths = String(element.dataset.statsPath || '').split(',').map(path => path.trim()).filter(Boolean);
-        const total = paths.reduce((sum, currentPath) => sum + (viewsByPath.get(currentPath) || 0), 0);
-        const label = `${numberFormat.format(total)} 次瀏覽`;
+        const totals = paths.reduce((sum, currentPath) => {
+          const current = statsByPath.get(currentPath) || { total: 0, today: 0 };
+          return { total: sum.total + current.total, today: sum.today + current.today };
+        }, { total: 0, today: 0 });
+        const label = `${numberFormat.format(totals.total)} 次 · 今日 ${numberFormat.format(totals.today)}`;
         updateText(element, label);
-        element.setAttribute('aria-label', label);
+        element.setAttribute('aria-label', `累積瀏覽 ${numberFormat.format(totals.total)} 次，今日造訪 ${numberFormat.format(totals.today)} 人次`);
       });
     } catch {
       targets.forEach(element => updateText(element, '瀏覽統計暫不可用'));
@@ -104,20 +128,24 @@
   const visitorId = getAnonymousId(localStorage, VISITOR_KEY);
   const sessionId = getAnonymousId(sessionStorage, SESSION_KEY);
   const path = normalizePath();
-  const initialEvent = isFirstViewForPath(path) ? 'pageview' : 'heartbeat';
 
-  sendActivity(initialEvent).catch(renderUnavailable);
-  renderPageBreakdown();
+  async function refreshActivity() {
+    const event = nextEventForPath(path);
+    await sendActivity(event);
+    if (event === 'pageview') await renderPageBreakdown();
+  }
+
+  refreshActivity().catch(renderUnavailable);
 
   window.setInterval(() => {
     if (document.visibilityState === 'visible') {
-      sendActivity('heartbeat').catch(() => {});
+      refreshActivity().catch(() => {});
     }
   }, HEARTBEAT_MS);
 
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') {
-      sendActivity('heartbeat').catch(() => {});
+      refreshActivity().catch(() => {});
     }
   });
 })();
