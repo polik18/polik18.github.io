@@ -1,0 +1,5 @@
+.DS_Store
+analytics-worker/node_modules/
+analytics-worker/.wrangler/
+analytics-worker/wrangler.toml
+

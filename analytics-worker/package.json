@@ -1,0 +1,17 @@
+{
+  "name": "polik-site-stats-worker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:create": "wrangler d1 create polik-site-stats-db",
+    "db:migrate:local": "wrangler d1 migrations apply polik-site-stats-db --local",
+    "db:migrate:remote": "wrangler d1 migrations apply polik-site-stats-db --remote"
+  },
+  "devDependencies": {
+    "wrangler": "^4.145.0"
+  }
+}
+

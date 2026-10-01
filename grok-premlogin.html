@@ -728,40 +728,8 @@ grok</pre></div>
   addEventListener('scroll',()=>back.classList.toggle('show',scrollY>700),{passive:true});
   back.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
 
-  function initCounter(){
-    const viewEl=document.getElementById('view-count');
-    const onlineEl=document.getElementById('grok-online');
-    if(!viewEl||!onlineEl)return;
-
-    let currentViews=184512+Math.floor(Math.random()*488);
-    try{
-      const storedViews=parseInt(localStorage.getItem('cloyo_report_views'),10);
-      if(Number.isFinite(storedViews)&&storedViews>0)currentViews=storedViews;
-    }catch(e){}
-    currentViews+=1;
-
-    const saveViews=()=>{
-      try{localStorage.setItem('cloyo_report_views',String(currentViews))}catch(e){}
-    };
-    const renderViews=()=>{viewEl.textContent=currentViews.toLocaleString('zh-TW')};
-    saveViews();
-    renderViews();
-
-    let onlineUsers=8+Math.floor(Math.random()*5);
-    onlineEl.textContent=String(onlineUsers);
-
-    setInterval(()=>{
-      onlineUsers=Math.max(5,Math.min(15,onlineUsers+Math.floor(Math.random()*3)-1));
-      onlineEl.textContent=String(onlineUsers);
-      if(Math.random()>0.6){
-        currentViews+=Math.floor(Math.random()*3)+1;
-        saveViews();
-        renderViews();
-      }
-    },5000);
-  }
-  if(document.readyState==='loading')addEventListener('DOMContentLoaded',initCounter,{once:true});else initCounter();
 })();
 </script>
+<script src="assets/site-stats.js" defer></script>
 </body>
 </html>

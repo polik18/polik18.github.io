@@ -1,0 +1,14 @@
+name = "polik-site-stats-api"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+ALLOWED_ORIGINS = "http://localhost:4177,https://polik18.github.io"
+ONLINE_WINDOW_SECONDS = "120"
+BASELINE_AS_OF = "2026-10-02"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "polik-site-stats-db"
+database_id = "PASTE_D1_DATABASE_ID_HERE"
+migrations_dir = "migrations"

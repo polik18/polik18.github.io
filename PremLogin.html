@@ -623,51 +623,6 @@
     </script>
 
     <script>
-        // 網頁計數器核心邏輯
-        window.addEventListener('DOMContentLoaded', () => {
-            // 從 localStorage 獲取歷史瀏覽量，如無則初始化一個熱門高基數 (如 184,512)
-            let currentViews = parseInt(localStorage.getItem('cloyo_report_views'));
-            if (!currentViews || isNaN(currentViews)) {
-                // 產生 184512 ~ 185000 之間的逼真隨機數
-                currentViews = 184512 + Math.floor(Math.random() * 488);
-            }
-            
-            // 本次載入 + 1
-            currentViews += 1;
-            localStorage.setItem('cloyo_report_views', currentViews);
-
-            // 更新畫面中的瀏覽量位置
-            const updateViewElements = (val) => {
-                const formattedVal = val.toLocaleString();
-                const pageCounterEl = document.getElementById('page-counter');
-                const headerCounterEl = document.getElementById('header-view-counter');
-                if (pageCounterEl) pageCounterEl.innerText = formattedVal;
-                if (headerCounterEl) headerCounterEl.innerText = formattedVal;
-            };
-            
-            updateViewElements(currentViews);
-
-            // 模擬在線人數與微幅的點閱增加
-            let onlineUsers = 8 + Math.floor(Math.random() * 5); // 隨機 8-12 人 (維持在10人左右)
-            const onlineCounterEl = document.getElementById('online-counter');
-            if (onlineCounterEl) onlineCounterEl.innerText = onlineUsers;
-
-            // 每數秒產生微幅人氣跳動與累加效果
-            setInterval(() => {
-                // 在線人數微幅上下浮動
-                const fluctuation = Math.floor(Math.random() * 3) - 1; // -1 ~ +1 的微幅浮動
-                onlineUsers = Math.max(5, Math.min(15, onlineUsers + fluctuation)); // 限制在 5-15 人之間波動
-                if (onlineCounterEl) onlineCounterEl.innerText = onlineUsers;
-
-                // 隨機增加瀏覽量 (模擬真實其他用戶正在瀏覽)
-                if (Math.random() > 0.6) {
-                    currentViews += Math.floor(Math.random() * 3) + 1; // 隨機加 1 ~ 3 次
-                    localStorage.setItem('cloyo_report_views', currentViews);
-                    updateViewElements(currentViews);
-                }
-            }, 5000);
-        });
-
         // 第一個複製按鈕 (Section 4 卡片內)
         function copyCouponCode() {
             const tempInput = document.createElement('input');
@@ -728,5 +683,6 @@
             document.body.removeChild(tempInput);
         }
     </script>
+    <script src="assets/site-stats.js" defer></script>
 </body>
 </html>
