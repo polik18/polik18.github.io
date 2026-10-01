@@ -5,8 +5,8 @@ Polik Projects 的匿名站點統計服務，部署在 Cloudflare Workers，資�
 ## 統計定義
 
 - `totalViews`：185,054 筆歷史估算基準，加上線後的真實瀏覽；同一瀏覽器分頁工作階段造訪同一路徑只計一次。
-- `online`：最近 120 秒內仍有心跳的匿名分頁工作階段數。
-- 只儲存隨機 session UUID、路徑與時間，不記錄 IP、Email、Firebase UID 或 User-Agent。
+- `online`：最近 120 秒內仍有心跳的匿名瀏覽器數；同一瀏覽器開多個分頁只算一個在線。
+- 只儲存隨機 visitor/session UUID、路徑與時間，不記錄 IP、Email、Firebase UID 或 User-Agent。
 - `baseline_views` 與 `live_views` 分欄保存，歷史估算不會被偽裝成上線後真實事件。
 
 ## 部署

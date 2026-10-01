@@ -2,17 +2,18 @@
   'use strict';
 
   const API_URL = 'https://polik-site-stats-api.vote-platform-api.workers.dev/api/stats';
+  const VISITOR_KEY = 'polik_site_stats_visitor';
   const SESSION_KEY = 'polik_site_stats_session';
   const SEEN_KEY = 'polik_site_stats_seen_paths';
   const HEARTBEAT_MS = 45_000;
   const numberFormat = new Intl.NumberFormat('zh-TW');
 
-  function getSessionId() {
+  function getAnonymousId(storage, key) {
     try {
-      let value = sessionStorage.getItem(SESSION_KEY);
+      let value = storage.getItem(key);
       if (!value) {
         value = crypto.randomUUID();
-        sessionStorage.setItem(SESSION_KEY, value);
+        storage.setItem(key, value);
       }
       return value;
     } catch {
@@ -65,7 +66,7 @@
     const response = await fetch(API_URL, {
       method: 'POST',
       headers: { 'content-type': 'text/plain;charset=UTF-8' },
-      body: JSON.stringify({ sessionId, path, event }),
+      body: JSON.stringify({ visitorId, sessionId, path, event }),
       cache: 'no-store',
       keepalive: true
     });
@@ -74,7 +75,8 @@
     render(stats);
   }
 
-  const sessionId = getSessionId();
+  const visitorId = getAnonymousId(localStorage, VISITOR_KEY);
+  const sessionId = getAnonymousId(sessionStorage, SESSION_KEY);
   const path = normalizePath();
   const initialEvent = isFirstViewForPath(path) ? 'pageview' : 'heartbeat';
 

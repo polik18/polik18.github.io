@@ -133,10 +133,13 @@ async function parseBody(request) {
 async function recordActivity(request, env) {
   const body = await parseBody(request);
   const sessionId = body?.sessionId;
+  // visitorId is stable across tabs so "online" approximates browsers rather than open tabs.
+  // The fallback keeps the first cached tracker version compatible during rollout.
+  const visitorId = body?.visitorId || sessionId;
   const path = normalizePath(body?.path);
   const event = body?.event === 'heartbeat' ? 'heartbeat' : 'pageview';
 
-  if (!validSessionId(sessionId) || !path) {
+  if (!validSessionId(visitorId) || !validSessionId(sessionId) || !path) {
     return jsonResponse({ error: 'invalid_activity' }, 400, request, env);
   }
 
@@ -147,7 +150,7 @@ async function recordActivity(request, env) {
     ON CONFLICT(session_id) DO UPDATE SET
       last_seen = excluded.last_seen,
       last_path = excluded.last_path
-  `).bind(sessionId, now, now, path).run();
+  `).bind(visitorId, now, now, path).run();
 
   if (event === 'pageview') {
     const inserted = await env.DB.prepare(`
