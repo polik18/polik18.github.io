@@ -129,13 +129,16 @@
   const sessionId = getAnonymousId(sessionStorage, SESSION_KEY);
   const path = normalizePath();
 
-  async function refreshActivity() {
+  async function refreshActivity(refreshBreakdown = false) {
     const event = nextEventForPath(path);
-    await sendActivity(event);
-    if (event === 'pageview') await renderPageBreakdown();
+    try {
+      await sendActivity(event);
+    } finally {
+      if (refreshBreakdown || event === 'pageview') await renderPageBreakdown();
+    }
   }
 
-  refreshActivity().catch(renderUnavailable);
+  refreshActivity(true).catch(renderUnavailable);
 
   window.setInterval(() => {
     if (document.visibilityState === 'visible') {
