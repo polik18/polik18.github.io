@@ -23,7 +23,6 @@ const TRACKED_PATHS = new Set([
   '/school-scheduler/',
   '/class3d-gallery/',
   '/class/exam.html',
-  '/class/pro.html',
   '/polik-recovery/',
   '/ytshort/'
 ]);
