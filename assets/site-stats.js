@@ -51,10 +51,10 @@
   }
 
   function render(stats) {
-    const onlineTargets = ['home-online-counter', 'online-counter', 'grok-online'];
+    const onlineTargets = ['home-online-counter', 'online-counter', 'grok-online', 'chatgpt-online'];
     const totalTargets = ['home-page-counter', 'page-counter', 'header-view-counter', 'view-count'];
     const todayGlobalTargets = ['home-today-counter'];
-    const todayPageTargets = ['today-counter', 'grok-today'];
+    const todayPageTargets = ['today-counter', 'grok-today', 'chatgpt-today'];
     onlineTargets.forEach(id => {
       const element = document.getElementById(id);
       updateText(element, numberFormat.format(stats.online));
@@ -74,8 +74,9 @@
 
   function renderUnavailable() {
     const ids = ['home-online-counter', 'online-counter', 'grok-online',
+      'chatgpt-online',
       'home-page-counter', 'page-counter', 'header-view-counter', 'view-count',
-      'home-today-counter', 'today-counter', 'grok-today'];
+      'home-today-counter', 'today-counter', 'grok-today', 'chatgpt-today'];
     ids.forEach(id => {
       const element = document.getElementById(id);
       if (element) {
