@@ -12,6 +12,7 @@ const TRACKED_PATHS = new Set([
   '/experiments.html',
   '/PremLogin.html',
   '/grok-premlogin.html',
+  '/chatgpt-premlogin.html',
   '/Audio-Visualizer-3D/',
   '/CyberSnake/',
   '/Screenrecorder/',
