@@ -305,20 +305,21 @@ cd your-project
 grok</pre></div>
         <p>首次啟動通常會開啟瀏覽器完成登入；在 SSH、CI 或沒有瀏覽器的環境，可依官方文件使用 device login 或設定 <code>XAI_API_KEY</code>。執行 <code>grok inspect</code> 可先查看目前目錄會載入哪些 rules、skills、plugins、hooks 與 MCP servers。</p>
 
-        <h3>最適合本站文章的實作：請 Agent 稽核 GitHub Pages，而不是直接「幫我改好」</h3>
-        <div class="prompt-wrap"><span class="prompt-label">Grok Build CLI 任務範本</span><button class="prompt-copy" type="button" data-copy-target="prompt-cli-pages">複製</button><pre class="prompt" id="prompt-cli-pages">你正在一個 GitHub Pages 專案中。請先進入 Plan Mode，不要立即修改檔案。
+        <h3>實戰任務範本：請 Agent 為現有專案做「代碼健檢與品質優化」，先審計畫再動手</h3>
+        <p>很多初學者第一次使用終端機 Agent 時，最常犯的錯誤就是直接下達「幫我重構」或「把網頁改好看一點」，導致 Agent 瞬間改動幾十個檔案而改崩。正確的做法是善用 Grok 的 <strong>Plan Mode</strong>，要求它先扮演架構師進行安全診斷、產出修改計畫並經你核准後，才進行最小幅度的修改：</p>
+        <div class="prompt-wrap"><span class="prompt-label">Grok Build CLI 任務範本</span><button class="prompt-copy" type="button" data-copy-target="prompt-cli-audit">複製</button><pre class="prompt" id="prompt-cli-audit">你正在一個專案目錄中。請先進入 Plan Mode，嚴格禁止直接修改任何檔案。
 
-目標：稽核並改善這篇繁體中文 SEO 教學文章，但不得更換品牌版型、PremLogin 聯盟網址或折扣碼 HJZ001。
+任務目標：為目前的專案進行非破壞性的「代碼品質、效能與架構安全健檢」，並提出最小改善計畫。
 
-請依序完成：
-1. 讀取 index.html、README、robots.txt、sitemap.xml 與 assets。
-2. 檢查 title、description、canonical、Open Graph、Article／Breadcrumb JSON-LD、H1–H3、內部錨點、圖片 alt、行動版與無障礙。
-3. 列出「內容缺口」「事實可能過時」「技術錯誤」「轉換阻力」四類問題。
-4. 先顯示修改計畫、涉及檔案與風險，等我核准。
-5. 核准後只做必要修改，顯示完整 diff。
-6. 執行 HTML／JSON-LD／JavaScript 與站內連結檢查。
-7. 不要捏造實測、價格、官方合作或保證；動態資訊需留下查核日期。
-8. 最後輸出變更摘要、仍需人工確認事項與回復方式。</pre></div>
+執行步驟：
+1. 探索專案目錄架構、設定檔（如 package.json、tsconfig、環境設定）、核心入口模組與測試設定。
+2. 檢查專案是否存在：過期依賴、潛在資安漏洞、未捕獲的例外處理、未使用的死代碼或語意/結構錯誤。
+3. 產出健檢診斷報告，將問題分級為：[重大風險]、[效能瓶頸]、[維護性問題]、[優化建議]。
+4. 針對高優先級問題，規劃「最小衝擊的修改計畫」，列出預計變更的檔案清單與測試驗證方式。
+5. 停下來等待我的確認與授權。未經我明確核准，切勿執行任何檔案寫入或指令操作。
+6. 獲得核准後，每次僅處理一項變更，並展示完整的 git diff 供我審核。
+7. 執行專案自帶的測試（test/lint/build），確認既有功能完全正常且無副作用。
+8. 最後輸出變更摘要、測試驗收證據與 git 復原指令。</pre></div>
 
         <div class="table-wrap" role="region" aria-label="Grok Build CLI 常用模式與命令" tabindex="0">
           <table class="score-table">
