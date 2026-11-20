@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#174f3c">
+  <meta name="description" content="許多人在使用 Google 協作平台（Google Sites） 架設網站時，常被其直覺的拖曳式介面與免費託管給吸引。然而，當你想加入特定的互動按鈕、客製化計算機、動態圖表或獨特的視覺樣式時，卻發現預設的功能不夠用？雖然 Google 協作平台不支援直接上傳整個 .html 靜態網站檔案，但只要活用">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://polik18.github.io/blog/google-sites-embed-html.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="【2026 Google 協作平台教學】如何嵌入自訂 HTML/CSS/JavaScript？突破版型限制實戰全解析">
+  <meta property="og:description" content="許多人在使用 Google 協作平台（Google Sites） 架設網站時，常被其直覺的拖曳式介面與免費託管給吸引。然而，當你想加入特定的互動按鈕、客製化計算機、動態圖表或獨特的視覺樣式時，卻發現預設的功能不夠用？雖然 Google 協作平台不支援直接上傳整個 .html 靜態網站檔案，但只要活用">
+  <meta property="og:url" content="https://polik18.github.io/blog/google-sites-embed-html.html">
+  <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGefTV5q8v6Ug96RjlTedgHTYoWKM9uE_8ZIzkSBMx3jm5xdkp7vwpqZSHm-9VUEdFkRTIC0vZiq0Gs-vAmiPYXmYy8hSXb5L77GA6gvAhU-CcMUkvAKQznw10Ya3XH1qJpqol-1s5-KFEd2MFZHDIxUA2BpIQW2XrJYPFwRqxf1-bFutC1Ez1TsL1UFw/w640-h358/Gemini_Generated_Image_iyfht9iyfht9iyfh.jpeg">
+  <link rel="icon" href="../assets/c-le-you-logo.jpg">
+  <link rel="stylesheet" href="../assets/portfolio.css?v=20261120c">
+  <title>【2026 Google 協作平台教學】如何嵌入自訂 HTML/CSS/JavaScript？突破版型限制實戰全解析｜C樂遊</title>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "【2026 Google 協作平台教學】如何嵌入自訂 HTML/CSS/JavaScript？突破版型限制實戰全解析", "description": "許多人在使用 Google 協作平台（Google Sites） 架設網站時，常被其直覺的拖曳式介面與免費託管給吸引。然而，當你想加入特定的互動按鈕、客製化計算機、動態圖表或獨特的視覺樣式時，卻發現預設的功能不夠用？雖然 Google 協作平台不支援直接上傳整個 .html 靜態網站檔案，但只要活用", "datePublished": "2026-10-28", "dateModified": "2026-10-28", "author": {"@type": "Person", "name": "小黃老師"}, "publisher": {"@type": "Organization", "name": "C樂遊", "logo": {"@type": "ImageObject", "url": "https://polik18.github.io/assets/c-le-you-logo.jpg"}}, "mainEntityOfPage": "https://polik18.github.io/blog/google-sites-embed-html.html", "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGefTV5q8v6Ug96RjlTedgHTYoWKM9uE_8ZIzkSBMx3jm5xdkp7vwpqZSHm-9VUEdFkRTIC0vZiq0Gs-vAmiPYXmYy8hSXb5L77GA6gvAhU-CcMUkvAKQznw10Ya3XH1qJpqol-1s5-KFEd2MFZHDIxUA2BpIQW2XrJYPFwRqxf1-bFutC1Ez1TsL1UFw/w640-h358/Gemini_Generated_Image_iyfht9iyfht9iyfh.jpeg"}</script>
+  <style>
+    .page-hero h1{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.25;max-width:900px}
+    .post-body{max-width:820px;margin:0 auto;padding:8px 16px 48px;overflow-wrap:anywhere}
+    .post-body img{max-width:100%;height:auto}
+    .post-body a img{display:block;margin:0 auto}
+    .post-meta{color:#5b6b64;font-size:.95rem;margin-top:12px}
+    .post-source{max-width:820px;margin:24px auto 0;padding:14px 16px;border:1px solid #d7e3dc;border-radius:10px;background:#f5faf7;font-size:.95rem}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="site-header"><nav class="nav-shell" aria-label="主要導覽"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">P</span><span>Polik Projects<small>TOOLS FOR REAL WORK</small></span></a><div class="site-nav"><a href="../">總覽</a><a href="../education.html">教學現場</a><a href="../creator.html">內容創作</a><a href="../systems.html">系統診斷</a><a href="../experiments.html">互動實驗</a></div></nav></header>
+  <main id="main">
+    <section class="page-hero"><div class="container"><div class="breadcrumb"><a href="../">專案總覽</a> / <a href="../#blog">C樂遊文章精選</a></div><h1>【2026 Google 協作平台教學】如何嵌入自訂 HTML/CSS/JavaScript？突破版型限制實戰全解析</h1><p class="post-meta">作者：小黃老師（C樂遊）・發表於 2026-10-28</p></div></section>
+    <article class="post-body">
+<p></p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGefTV5q8v6Ug96RjlTedgHTYoWKM9uE_8ZIzkSBMx3jm5xdkp7vwpqZSHm-9VUEdFkRTIC0vZiq0Gs-vAmiPYXmYy8hSXb5L77GA6gvAhU-CcMUkvAKQznw10Ya3XH1qJpqol-1s5-KFEd2MFZHDIxUA2BpIQW2XrJYPFwRqxf1-bFutC1Ez1TsL1UFw/s1600/Gemini_Generated_Image_iyfht9iyfht9iyfh.jpeg" style="margin-left: 1em; margin-right: 1em;"><img alt="" data-original-height="768" data-original-width="1376" height="358" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGefTV5q8v6Ug96RjlTedgHTYoWKM9uE_8ZIzkSBMx3jm5xdkp7vwpqZSHm-9VUEdFkRTIC0vZiq0Gs-vAmiPYXmYy8hSXb5L77GA6gvAhU-CcMUkvAKQznw10Ya3XH1qJpqol-1s5-KFEd2MFZHDIxUA2BpIQW2XrJYPFwRqxf1-bFutC1Ez1TsL1UFw/w640-h358/Gemini_Generated_Image_iyfht9iyfht9iyfh.jpeg" width="640" /></a></div><p></p><p>許多人在使用 <a href="https://sites.google.com" style="color: #0abab5; font-weight: bold; text-decoration: none;" target="_blank">Google 協作平台（Google Sites）</a> 架設網站時，常被其直覺的拖曳式介面與免費託管給吸引。然而，當你想加入特定的互動按鈕、客製化計算機、動態圖表或獨特的視覺樣式時，卻發現預設的功能不夠用？雖然 Google 協作平台不支援直接上傳整個 <code>.html</code> 靜態網站檔案，但只要活用內建的「嵌入程式碼」功能，就能輕鬆注入 HTML、CSS 與 JavaScript！這篇文章將為你帶來最全面的實戰教學與沙盒機制全解析，讓你的網頁質感大幅提升！</p><p>&nbsp;</p><p>&nbsp;</p><div class="james-wrapper" style="box-sizing: border-box; margin: 0px -10px; padding: 0px 10px; width: calc(100% + 20px);"><div style="background-color: #f4fbfc; border-radius: 8px; border: 1px solid rgb(10, 186, 181); margin-bottom: 40px; padding: 25px;"><strong style="border-bottom: 1px dashed rgb(10, 186, 181); color: #0abab5; display: block; font-size: 1.3em; margin-bottom: 15px; padding-bottom: 10px;">📖 文章目錄 (點擊快速跳轉)</strong><ol style="color: #333333; line-height: 2; margin: 0px; padding-left: 25px;"><li><a href="#sec1" style="color: #333333; text-decoration: none;">1. 為何需要自訂程式碼？突破預設版型的瓶頸</a></li><li><a href="#sec2" style="color: #333333; text-decoration: none;">2. 4 步驟實戰：如何在 Google 協作平台內嵌語法</a></li><li><a href="#sec3" style="color: #333333; text-decoration: none;">3. 語法結構範例：將 HTML、CSS 與 JS 完美融合</a></li><li><a href="#sec4" style="color: #333333; text-decoration: none;">4. 進階實戰：引用外部 CDN 函式庫打造動態圖表</a></li><li><a href="#sec5" style="color: #333333; text-decoration: none;">5. 必看沙盒（Sandbox）安全限制與排版地雷</a></li><li><a href="#sec6" style="color: #333333; text-decoration: none;">6. 常見問題與除錯技巧 (Troubleshooting)</a></li></ol></div><h2 id="sec1" style="border-bottom: 2px solid rgb(10, 186, 181); color: #0abab5; font-size: clamp(1.4rem, 4vw, 1.8rem); margin-bottom: 20px; padding-bottom: 8px;">1. 為何需要自訂程式碼？突破預設版型的瓶頸</h2><p>Google 協作平台是許多企業、學校與個人部落客極為青睞的架站工具。它的最大優勢在於零成本、無需管理伺服器，且與 Google 雲端硬碟完美整合。然而，當網站規模擴大或有特殊行銷需求時，預設的元件庫往往會顯得捉襟見肘：</p><ul style="color: #444444; line-height: 1.8;"><li><strong>缺乏客製化視覺：</strong> 預設的主題色彩與字型選擇有限，難以建立專屬的品牌視覺識別。</li><li><strong>無法原生支援動態互動：</strong> 例如房貸試算機、問卷測驗、折疊選單或動態跑馬燈等功能無法直接拖曳產生。</li><li><strong>第三方工具整合受限：</strong> 有時需要嵌入自訂的行銷追蹤碼或特效元件。</li></ul><p>幸好，Google 官方保留了「嵌入程式碼」這扇大門。透過嵌入，我們可以在獨立的區塊中發揮程式設計的無窮創意！</p><h2 id="sec2" style="border-bottom: 2px solid rgb(10, 186, 181); color: #0abab5; font-size: clamp(1.4rem, 4vw, 1.8rem); margin-bottom: 20px; padding-bottom: 8px;">2. 4 步驟實戰：如何在 Google 協作平台內嵌語法</h2><p>要在 Google 協作平台中加入你的程式碼，操作過程非常直覺。請跟著以下步驟進行：</p><div style="display: grid; gap: 15px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin: 25px 0px;"><div style="background: rgb(255, 255, 255); border-color: rgb(226, 232, 240) rgb(226, 232, 240) rgb(226, 232, 240) rgb(10, 186, 181); border-image: none; border-left: 4px solid #0abab5; border-radius: 6px; border-style: solid; border-width: 1px 1px 1px 4px; border: 1px solid #e2e8f0; box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 4px; padding: 18px;"><strong style="color: #0abab5; display: block; font-size: 1.1em; margin-bottom: 8px;">STEP 1. 開啟編輯器</strong>進入 Google 協作平台後台，前往欲加入元件的目標頁面與區塊。</div><div style="background: rgb(255, 255, 255); border-color: rgb(226, 232, 240) rgb(226, 232, 240) rgb(226, 232, 240) rgb(10, 186, 181); border-image: none; border-left: 4px solid #0abab5; border-radius: 6px; border-style: solid; border-width: 1px 1px 1px 4px; border: 1px solid #e2e8f0; box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 4px; padding: 18px;"><strong style="color: #0abab5; display: block; font-size: 1.1em; margin-bottom: 8px;">STEP 2. 選擇「嵌入」</strong>在右側工具列的「插入」分頁中，點選「嵌入」（Embed）圖示。</div><div style="background: rgb(255, 255, 255); border-color: rgb(226, 232, 240) rgb(226, 232, 240) rgb(226, 232, 240) rgb(10, 186, 181); border-image: none; border-left: 4px solid #0abab5; border-radius: 6px; border-style: solid; border-width: 1px 1px 1px 4px; border: 1px solid #e2e8f0; box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 4px; padding: 18px;"><strong style="color: #0abab5; display: block; font-size: 1.1em; margin-bottom: 8px;">STEP 3. 切換「嵌入程式碼」</strong>在彈出視窗上方，從「透過網址」切換至「嵌入程式碼」（Embed code）。</div><div style="background: rgb(255, 255, 255); border-color: rgb(226, 232, 240) rgb(226, 232, 240) rgb(226, 232, 240) rgb(10, 186, 181); border-image: none; border-left: 4px solid #0abab5; border-radius: 6px; border-style: solid; border-width: 1px 1px 1px 4px; border: 1px solid #e2e8f0; box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 4px; padding: 18px;"><strong style="color: #0abab5; display: block; font-size: 1.1em; margin-bottom: 8px;">STEP 4. 貼上語法並插入</strong>輸入 HTML/CSS/JS 程式碼，點擊「下一步」預覽效果，確認無誤後點擊「插入」。</div></div><p>完成插入後，你可以直接以滑鼠拖曳該區塊四周的控制點，調校在頁面中的顯示寬度與高度。</p><h2 id="sec3" style="border-bottom: 2px solid rgb(10, 186, 181); color: #0abab5; font-size: clamp(1.4rem, 4vw, 1.8rem); margin-bottom: 20px; padding-bottom: 8px;">3. 語法結構範例：將 HTML、CSS 與 JS 完美融合</h2><p>許多初學者會好奇：在只有一個輸入框的情況下，該如何同時寫入網頁結構、外觀樣式與動態邏輯？答案是將三者<strong>包裝在同一個文字框中</strong>。</p><p>以下是一個完整的示範範例，包含了自訂卡片 HTML、美化的 CSS 樣式以及點擊按鈕觸發事件的 JavaScript：</p><pre style="background: rgb(30, 30, 30); border-radius: 8px; color: #d4d4d4; font-family: Consolas, Monaco, &quot;Courier New&quot;, monospace; font-size: 0.9rem; line-height: 1.5; overflow-x: auto; padding: 20px;"><code>&lt;div class="demo-card"&gt;
+  &lt;h3 class="card-title"&gt;💡 互動體驗測試&lt;/h3&gt;
+  &lt;p id="status-text"&gt;請點擊下方按鈕測試 JavaScript 運作品質：&lt;/p&gt;
+  &lt;button id="click-btn"&gt;發送測試訊號&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+  .demo-card {
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #f8fafc;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    font-family: system-ui, sans-serif;
+  }
+  .card-title {
+    margin-top: 0;
+    color: #0abab5;
+  }
+  #click-btn {
+    padding: 10px 22px;
+    background-color: #0abab5;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+  }
+  #click-btn:hover {
+    background-color: #089692;
+    transform: translateY(-1px);
+  }
+&lt;/style&gt;
+
+&lt;script&gt;
+  document.getElementById('click-btn').addEventListener('click', function() {
+    const txt = document.getElementById('status-text');
+    txt.innerText = '🎉 太棒了！JavaScript 語法順利執行成功！';
+    txt.style.color = '#10b981';
+    txt.style.fontWeight = 'bold';
+  });
+&lt;/script&gt;</code></pre><h2 id="sec4" style="border-bottom: 2px solid rgb(10, 186, 181); color: #0abab5; font-size: clamp(1.4rem, 4vw, 1.8rem); margin-bottom: 20px; padding-bottom: 8px;">4. 進階實戰：引用外部 CDN 函式庫打造動態圖表</h2><p>除了基礎的原生語法，你還可以在嵌入區塊中透過 CDN（內容分發網路）載入強大的第三方 JavaScript 函式庫，例如視覺化圖表套件 <a href="https://www.chartjs.org/" style="color: #0abab5; font-weight: bold; text-decoration: none;" target="_blank">Chart.js</a> 或圖示庫 <a href="https://fontawesome.com/" style="color: #0abab5; font-weight: bold; text-decoration: none;" target="_blank">FontAwesome</a>。</p><p>以 Chart.js 為例，只需貼上以下語法，就能在協作平台中呈現精美的數據動態圖表：</p><pre style="background: rgb(30, 30, 30); border-radius: 8px; color: #d4d4d4; font-family: Consolas, Monaco, &quot;Courier New&quot;, monospace; font-size: 0.9rem; line-height: 1.5; overflow-x: auto; padding: 20px;"><code>&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;
+
+&lt;div style="position:relative; height:320px; width:100%; background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.06);"&gt;
+  &lt;canvas id="myChart"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  const ctx = document.getElementById('myChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+      datasets: [{
+        label: '網站訪問流量 (萬人)',
+        data: [12, 19, 15, 25, 22, 30],
+        borderColor: '#0abab5',
+        backgroundColor: 'rgba(10, 186, 181, 0.15)',
+        fill: true,
+        tension: 0.3
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false
+    }
+  });
+&lt;/script&gt;</code></pre><h2 id="sec5" style="border-bottom: 2px solid rgb(10, 186, 181); color: #0abab5; font-size: clamp(1.4rem, 4vw, 1.8rem); margin-bottom: 20px; padding-bottom: 8px;">5. 必看沙盒（Sandbox）安全限制與排版地雷</h2><p>在使用嵌入功能時，必須了解 Google 協作平台的底層機制，以確保開發順利：</p><div style="margin-bottom: 25px; overflow-x: auto;"><table style="border-collapse: collapse; font-size: 0.95rem; text-align: left; width: 100%;"><thead style="background-color: #e6f7f7; color: #0abab5;"><tr><th style="border: 1px solid rgb(203, 213, 225); padding: 12px;">限制項目</th><th style="border: 1px solid rgb(203, 213, 225); padding: 12px;">運作機制解析</th><th style="border: 1px solid rgb(203, 213, 225); padding: 12px;">對開發者的影響與對策</th></tr></thead><tbody><tr><td style="border: 1px solid rgb(203, 213, 225); font-weight: bold; padding: 12px;">iframe 獨立沙盒</td><td style="border: 1px solid rgb(203, 213, 225); padding: 12px;">程式碼被封裝在 <code>googleusercontent.com</code> 域名下的 iframe 中。</td><td style="border: 1px solid rgb(203, 213, 225); padding: 12px;"><strong>無法改寫主站 DOM：</strong> JS 程式碼無法修改協作平台本身的導覽列、頁尾或整體主題 CSS。</td></tr><tr><td style="border: 1px solid rgb(203, 213, 225); font-weight: bold; padding: 12px;">容器高度切割問題</td><td style="border: 1px solid rgb(203, 213, 225); padding: 12px;">iframe 有固定的高度與寬度邊界。</td><td style="border: 1px solid rgb(203, 213, 225); padding: 12px;">若內容超出預設高度，會出現內層滾動條（Scrollbar）。需手動拉長區塊或將 CSS 設為 <code>overflow:hidden</code>。</td></tr><tr><td style="border: 1px solid rgb(203, 213, 225); font-weight: bold; padding: 12px;">跨域 Cookie 存取限制</td><td style="border: 1px solid rgb(203, 213, 225); padding: 12px;">受第三方 Cookie 與 Same-Origin 政策限制。</td><td style="border: 1px solid rgb(203, 213, 225); padding: 12px;">避免在嵌入程式碼中依賴 <code>document.cookie</code> 或跨域存取敏感資訊。</td></tr><tr><td style="border: 1px solid rgb(203, 213, 225); font-weight: bold; padding: 12px;">響應式版面斷點</td><td style="border: 1px solid rgb(203, 213, 225); padding: 12px;">手機版螢幕寬度窄於電腦版。</td><td style="border: 1px solid rgb(203, 213, 225); padding: 12px;">容器請勿設死固定寬度（如 <code>width: 800px</code>），改用百分比 <code>width: 100%</code>。</td></tr></tbody></table></div><h2 id="sec6" style="border-bottom: 2px solid rgb(10, 186, 181); color: #0abab5; font-size: clamp(1.4rem, 4vw, 1.8rem); margin-bottom: 20px; padding-bottom: 8px;">6. 常見問題與除錯技巧 (Troubleshooting)</h2><p><strong>Q1：貼上語法後畫面一片空白，該怎麼辦？</strong><br />這通常是語法錯誤導致。請檢查是否有標籤未閉合（例如少寫了 <code>&lt;/script&gt;</code> 或 <code>&lt;/style&gt;</code>）。另外可以按下瀏覽器快捷鍵 <code>F12</code> 開啟開發者工具（Developer Tools），切換到 Console 分頁查看是否有紅色的 JS 報錯或是安全阻擋訊息。</p><p><strong>Q2：如何完美消除令人頭疼的雙重滾動條（Scrollbar）？</strong><br />在協作平台編輯介面中，點擊該嵌入區塊並拖曳下方藍色圓點，適度拉大高度。同時可以在 CSS 的根容器加上 <code>body { margin: 0; overflow: hidden; }</code> 確保不會因為外距產生多餘的滾動條。</p><p><strong>Q3：我想直接託管一整套 HTML 靜態網站，有推薦的免費替代方案嗎？</strong><br />若你需要上傳包含多個 <code>.html</code>、<code>.css</code> 圖片資料夾的完整專案，建議使用專門的免費靜態網頁託管平台：</p><ul style="color: #444444; line-height: 1.8;"><li><a href="https://pages.github.com/" style="color: #0abab5; font-weight: bold; text-decoration: none;" target="_blank">GitHub Pages</a>：工程師首選，完全免費且支援客製化網域與免費 SSL 憑證。</li><li><a href="https://www.netlify.com/" style="color: #0abab5; font-weight: bold; text-decoration: none;" target="_blank">Netlify</a> / <a href="https://vercel.com/" style="color: #0abab5; font-weight: bold; text-decoration: none;" target="_blank">Vercel</a>：只要拖曳資料夾即可幾秒內完成發布，操作極為友善。</li><li><a href="https://firebase.google.com/" style="color: #0abab5; font-weight: bold; text-decoration: none;" target="_blank">Firebase Hosting</a>：Google 旗下的託管服務，速度極快且免費額度充裕。</li></ul><div class="disclaimer-box" style="background: rgb(241, 245, 249); border-left: 4px solid rgb(100, 116, 139); border-radius: 4px; color: #475569; font-size: 0.88rem; line-height: 1.6; margin-top: 40px; padding: 15px 20px;"><strong>💡 技術操作與安全免責聲明：</strong> 本文所提供之 HTML、CSS 與 JavaScript 範例程式碼僅供學習交流與技術參考。使用者於 Google 協作平台嵌入自訂語法時，請確保來源安全無虞，切勿嵌入含有惡意腳本或側錄個人資料之第三方語法。本站不對因使用本文程式碼導致之網頁跑版、功能異常或資料安全問題承擔法律責任。</div></div><style>html{scroll-behavior:smooth}.james-wrapper h2,.james-wrapper h3{scroll-margin-top:80px}.james-wrapper{font-family:system-ui,-apple-system,"BlinkMacSystemFont","Segoe UI","Microsoft JhengHei",sans-serif;font-size:clamp(1rem,2.5vw,1.2rem);line-height:1.75;color:#333}.james-wrapper pre code{font-family:Consolas,Monaco,Courier New,monospace}.james-wrapper table th,.james-wrapper table td{border-color:#cbd5e1}.disclaimer-box{box-sizing:border-box}</style>
+    </article>
+    <aside class="post-source">本文同步發表於 <a href="https://polik18.blogspot.com/2026/10/2026-google-htmlcssjavascript.html">C樂遊部落格</a>。更多教學文章請見 <a href="../#blog">文章精選</a> 或 <a href="https://polik18.blogspot.com/">C樂遊部落格首頁</a>。</aside>
+  </main>
+  <footer class="site-footer"><div class="container footer-grid"><div><strong>Polik Projects</strong><p>以教學現場為起點，持續探索瀏覽器能替工作流程做到什麼。</p></div><div class="footer-links"><a href="../education.html">教學</a><a href="../creator.html">創作</a><a href="../systems.html">系統</a><a href="../experiments.html">實驗</a><a href="https://polik18.blogspot.com/">部落格</a></div></div></footer>
+  <script src="../assets/site-stats.js?v=20261002-2" defer></script>
+</body>
+</html>
