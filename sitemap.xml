@@ -3,39 +3,39 @@
   <!-- Canonical public pages only. lastmod dates reflect page-level changes. -->
   <url>
     <loc>https://polik18.github.io/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/education.html</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/creator.html</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/systems.html</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/experiments.html</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/PremLogin.html</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/grok-premlogin.html</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/chatgpt-premlogin.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/Audio-Visualizer-3D/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/CyberSnake/</loc>
@@ -43,23 +43,23 @@
   </url>
   <url>
     <loc>https://polik18.github.io/Screenrecorder/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/SeatPlanner/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/Webcoding/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/YieldVitals/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/class/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/vote-platform/</loc>
@@ -79,18 +79,82 @@
   </url>
   <url>
     <loc>https://polik18.github.io/class3d-gallery/</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/class/exam.html</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/polik-recovery/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://polik18.github.io/ytshort/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/blog/git-beginner-guide.html</loc>
+    <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/blog/ai-terms-2026.html</loc>
+    <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/blog/t2v-i2v-s2v-guide.html</loc>
+    <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/blog/notebooklm-guide.html</loc>
+    <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/school-it-toolkit/</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/school-it-toolkit/blog/ai-sysadmin-tutorial.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/school-it-toolkit/zh-TW/quickstart.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/school-it-toolkit/zh-TW/architecture.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/school-it-toolkit/zh-TW/adapters.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/school-it-toolkit/zh-TW/security.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/school-it-toolkit/zh-TW/recommendations.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/school-it-toolkit/zh-TW/local-ai-workstation.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/school-it-toolkit/zh-TW/pitfalls.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/school-it-toolkit/zh-TW/homebrew-fleet.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/school-it-toolkit/zh-TW/migrate-v1-to-v2.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://polik18.github.io/school-it-toolkit/en/</loc>
+    <lastmod>2026-11-20</lastmod>
   </url>
 </urlset>
