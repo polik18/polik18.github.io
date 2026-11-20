@@ -8,7 +8,7 @@
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://polik18.github.io/">
   <link rel="icon" href="assets/c-le-you-logo.jpg">
-  <link rel="stylesheet" href="assets/portfolio.css?v=20261120">
+  <link rel="stylesheet" href="assets/portfolio.css?v=20261120c">
   <title>Polik 專案展示｜教學、創作與系統工具總覽</title>
 </head>
 <body>
@@ -63,6 +63,24 @@
           <a class="category-card" href="systems.html"><div class="category-top"><span class="category-number">CATEGORY 03</span><span class="category-count">3 個專案</span></div><h3>效能診斷、資料救援與 AI 系管</h3><p>用可理解的指標檢查瀏覽器與硬體效能，整理唯讀優先的資料救援方法，並以開源工具包讓 AI 安全協助校園網路維運。</p><span class="category-link">深入了解系統工具 →</span></a>
           <a class="category-card" href="experiments.html"><div class="category-top"><span class="category-number">CATEGORY 04</span><span class="category-count">1 個實驗＋3 篇專欄</span></div><h3>互動實驗與 AI 專欄</h3><p>把 WebGL、即時音效與互動設計做成可玩的作品，同時留下 AI 工具操作與方案判讀文章。</p><span class="category-link">深入了解實驗內容 →</span></a>
         </div>
+        <div class="live-band" aria-hidden="true"><div><small>ONLINE NOW</small><strong data-mirror="home-online-counter">…</strong></div><div><small>TODAY</small><strong data-mirror="home-today-counter">…</strong></div><div><small>TOTAL VIEWS</small><strong data-mirror="home-page-counter">…</strong></div><div><small>PROJECTS</small><strong>14</strong></div></div>
+      </div>
+    </section>
+
+    <section class="section story" id="workflow" aria-labelledby="story-title">
+      <div class="container story-grid">
+        <div class="story-sticky">
+          <p class="section-kicker">Workflow</p>
+          <h2 id="story-title">從一個真實需求，<br>到<em>打開就能用</em>的工具</h2>
+          <p class="story-copy">每個專案都走同一條路：先把現場的麻煩看清楚，再用瀏覽器做出最小可用版本，經過實際使用修正後公開分享。</p>
+          <div class="story-meter" aria-hidden="true"><span></span></div>
+        </div>
+        <ol class="story-steps">
+          <li class="story-step"><span class="story-num">01</span><h3>看見問題</h3><p>從教室、行政與創作現場的重複工作出發，先定義「哪一步最花時間、最容易出錯」。</p><code>$ observe --where=classroom</code></li>
+          <li class="story-step"><span class="story-num">02</span><h3>最小原型</h3><p>優先用瀏覽器原生能力完成：不需安裝、不需帳號，打開網址就能試用。</p><code>$ build --no-backend --local-first</code></li>
+          <li class="story-step"><span class="story-num">03</span><h3>現場驗證</h3><p>在真實情境裡使用、收集回饋，把多餘的步驟拿掉，把容易誤觸的操作加上確認。</p><code>$ test --real-users --iterate</code></li>
+          <li class="story-step"><span class="story-num">04</span><h3>公開分享</h3><p>整理成公開頁面與說明，讓其他老師與使用者也能直接拿去用。</p><code>$ deploy --public --free</code></li>
+        </ol>
       </div>
     </section>
 
@@ -79,21 +97,23 @@
 
     <section class="section" id="directory">
       <div class="container">
-        <div class="section-head"><p class="section-kicker">Full directory</p><h2>全部專案快速索引</h2><p>已經知道要找什麼，可以直接前往工具；想先比較，請由分類頁進一步閱讀。</p></div>
-        <div class="directory">
-          <div class="directory-row"><h3>Classroom Seat Master</h3><p>班級座位配置、規則安排、展示與本機備份。 <span class="project-view" data-stats-path="/SeatPlanner/">統計載入中</span></p><a href="https://polik18.github.io/SeatPlanner/">開啟工具 ↗</a></div>
-          <div class="directory-row"><h3>Polik Scheduler</h3><p>從 Excel 匯入教師、班級、課程與限制，在瀏覽器完成智慧排課、衝突診斷與人工微調。 <span class="project-view" data-stats-path="/school-scheduler/">統計載入中</span></p><a href="https://polik18.github.io/school-scheduler/">開始智慧排課 ↗</a></div>
-          <div class="directory-row"><h3>智慧課堂助手</h3><p>抽籤、分組、計時、計分、考場資訊與課堂互動。 <span class="project-view" data-stats-path="/class/,/class/exam.html">統計載入中</span></p><a href="https://polik18.github.io/class/">開啟工具 ↗</a></div>
-          <div class="directory-row"><h3>Polik Vote</h3><p>Google 帳號登入的線上投票與表決工具，支援記名／不記名、白名單與多種票制。 <span class="project-view" data-stats-path="/vote-platform/">統計載入中</span></p><a href="https://polik18.github.io/vote-platform/">開始投票 ↗</a></div>
-          <div class="directory-row"><h3>Class3D Gallery</h3><p>把班級作品放進互動式 3D 展場，提供展示模式、作品分享與資料架構預覽。 <span class="project-view" data-stats-path="/class3d-gallery/">統計載入中</span></p><a href="https://polik18.github.io/class3d-gallery/">進入作品展 ↗</a></div>
-          <div class="directory-row"><h3>Scratch AI Bridge</h3><p>用中文描述遊戲想法，交給 AI 產生程式，再轉成可在 Scratch 開啟的作品；缺少圖片時會自動補上背景與角色造型。</p><a href="https://polik18.github.io/scratch-editor-ai-bridge/">用 AI 製作 Scratch ↗</a></div>
-          <div class="directory-row"><h3>WebPad++</h3><p>程式、文件、OCR、QR Code 與 SEO 的瀏覽器工作台。 <span class="project-view" data-stats-path="/Webcoding/">統計載入中</span></p><a href="https://polik18.github.io/Webcoding/">開啟工具 ↗</a></div>
-          <div class="directory-row"><h3>Screenrecorder Pro</h3><p>本機螢幕擷取、雙軌混音與可拖曳攝影機子母畫面。 <span class="project-view" data-stats-path="/Screenrecorder/">統計載入中</span></p><a href="https://polik18.github.io/Screenrecorder/">開啟工具 ↗</a></div>
-          <div class="directory-row"><h3>Audio Visualizer 3D</h3><p>音訊驅動的 3D 視覺效果與 MP4 輸出。 <span class="project-view" data-stats-path="/Audio-Visualizer-3D/">統計載入中</span></p><a href="https://polik18.github.io/Audio-Visualizer-3D/">開啟工具 ↗</a></div>
-          <div class="directory-row"><h3>YouTube Shorts Embed</h3><p>把 Shorts 網址快速轉成可調整的直式嵌入碼。 <span class="project-view" data-stats-path="/ytshort/">統計載入中</span></p><a href="https://polik18.github.io/ytshort/">開啟工具 ↗</a></div>
-          <div class="directory-row"><h3>YieldVitals</h3><p>CPU、GPU、記憶體、儲存與網路的八軸瀏覽器評測。 <span class="project-view" data-stats-path="/YieldVitals/">統計載入中</span></p><a href="https://polik18.github.io/YieldVitals/">開啟工具 ↗</a></div>
-          <div class="directory-row"><h3>Polik Recovery</h3><p>唯讀優先的磁碟救援架構、操作教學與桌面程式入口。 <span class="project-view" data-stats-path="/polik-recovery/">統計載入中</span></p><a href="https://polik18.github.io/polik-recovery/">查看專案 ↗</a></div>
-          <div class="directory-row"><h3>Cyber Snake 3D</h3><p>結合 WebGL、動態運鏡與即時合成音效的互動遊戲。 <span class="project-view" data-stats-path="/CyberSnake/">統計載入中</span></p><a href="https://polik18.github.io/CyberSnake/">開始遊戲 ↗</a></div>
+        <div class="section-head"><p class="section-kicker">Full directory</p><h2>14 個專案，打開就看得見</h2><p>每張卡片都是工具的真實畫面；滑鼠移上去會自動捲動預覽，點擊直接開啟。想先比較，請由分類頁進一步閱讀。</p></div>
+        <div class="bento-filter" role="group" aria-label="依分類篩選"><button type="button" aria-pressed="true" data-filter="all">全部</button><button type="button" aria-pressed="false" data-filter="edu">教學現場</button><button type="button" aria-pressed="false" data-filter="cre">內容創作</button><button type="button" aria-pressed="false" data-filter="sys">系統診斷</button><button type="button" aria-pressed="false" data-filter="lab">互動實驗</button></div>
+        <div class="bento">
+          <a class="bento-card b-lg" data-cat="edu" href="https://polik18.github.io/SeatPlanner/"><span class="bento-shot"><img src="assets/shots/seatplanner.webp" alt="Classroom Seat Master 畫面預覽" width="640" height="1000" loading="lazy" decoding="async"></span><span class="bento-body"><span class="bento-cat">教學現場</span><strong class="bento-title">Classroom Seat Master</strong><span class="bento-desc">班級座位配置、規則安排、展示與本機備份。 <span class="project-view" data-stats-path="/SeatPlanner/">統計載入中</span></span><span class="bento-go">開啟工具 ↗</span></span></a>
+          <a class="bento-card b-tall" data-cat="edu" href="https://polik18.github.io/school-scheduler/"><span class="bento-shot"><img src="assets/shots/school-scheduler.webp" alt="Polik Scheduler 畫面預覽" width="640" height="1000" loading="lazy" decoding="async"></span><span class="bento-body"><span class="bento-cat">教學現場</span><strong class="bento-title">Polik Scheduler</strong><span class="bento-desc">從 Excel 匯入教師、班級、課程與限制，在瀏覽器完成智慧排課、衝突診斷與人工微調。 <span class="project-view" data-stats-path="/school-scheduler/">統計載入中</span></span><span class="bento-go">開始智慧排課 ↗</span></span></a>
+          <a class="bento-card b-tall" data-cat="edu" href="https://polik18.github.io/class/"><span class="bento-shot"><img src="assets/shots/class.webp" alt="智慧課堂助手 畫面預覽" width="640" height="1000" loading="lazy" decoding="async"></span><span class="bento-body"><span class="bento-cat">教學現場</span><strong class="bento-title">智慧課堂助手</strong><span class="bento-desc">抽籤、分組、計時、計分、考場資訊與課堂互動。 <span class="project-view" data-stats-path="/class/,/class/exam.html">統計載入中</span></span><span class="bento-go">開啟工具 ↗</span></span></a>
+          <a class="bento-card b-sm" data-cat="edu" href="https://polik18.github.io/vote-platform/"><span class="bento-shot"><img src="assets/shots/vote-platform.webp" alt="Polik Vote 畫面預覽" width="640" height="1000" loading="lazy" decoding="async"></span><span class="bento-body"><span class="bento-cat">教學現場</span><strong class="bento-title">Polik Vote</strong><span class="bento-desc">Google 帳號登入的線上投票與表決，支援記名／不記名、白名單與多種票制。 <span class="project-view" data-stats-path="/vote-platform/">統計載入中</span></span><span class="bento-go">開始投票 ↗</span></span></a>
+          <a class="bento-card b-sm" data-cat="edu" href="https://polik18.github.io/class3d-gallery/"><span class="bento-shot"><img src="assets/shots/class3d-gallery.webp" alt="Class3D Gallery 畫面預覽" width="640" height="1000" loading="lazy" decoding="async"></span><span class="bento-body"><span class="bento-cat">教學現場</span><strong class="bento-title">Class3D Gallery</strong><span class="bento-desc">把班級作品放進互動式 3D 展場，提供展示模式與作品分享。 <span class="project-view" data-stats-path="/class3d-gallery/">統計載入中</span></span><span class="bento-go">進入作品展 ↗</span></span></a>
+          <a class="bento-card b-lg" data-cat="sys" href="https://polik18.github.io/school-it-toolkit/"><span class="bento-shot"><img src="assets/shots/school-it-toolkit.webp" alt="School IT Toolkit｜AI 系管師 畫面預覽" width="640" height="1000" loading="lazy" decoding="async"></span><span class="bento-body"><span class="bento-cat">系統診斷</span><strong class="bento-title">School IT Toolkit｜AI 系管師</strong><span class="bento-desc">讓 AI（含本地小模型）安全協助校園網路與電腦維運的開源框架：先唯讀、後變更，查不到就停。 <span class="project-view" data-stats-path="/school-it-toolkit/">統計載入中</span></span><span class="bento-go">閱讀工具包 ↗</span></span></a>
+          <a class="bento-card b-wide" data-cat="edu" href="https://polik18.github.io/scratch-editor-ai-bridge/"><span class="bento-shot"><img src="assets/shots/scratch-editor-ai-bridge.webp" alt="Scratch AI Bridge 畫面預覽" width="640" height="1000" loading="lazy" decoding="async"></span><span class="bento-body"><span class="bento-cat">教學現場</span><strong class="bento-title">Scratch AI Bridge</strong><span class="bento-desc">用中文描述遊戲想法，交給 AI 產生程式，再轉成可在 Scratch 開啟的作品。</span><span class="bento-go">用 AI 製作 Scratch ↗</span></span></a>
+          <a class="bento-card b-wide" data-cat="edu" href="https://polik18.github.io/Webcoding/"><span class="bento-shot"><img src="assets/shots/webcoding.webp" alt="WebPad++ 畫面預覽" width="640" height="1000" loading="lazy" decoding="async"></span><span class="bento-body"><span class="bento-cat">教學現場</span><strong class="bento-title">WebPad++</strong><span class="bento-desc">程式、文件、OCR、QR Code 與 SEO 的瀏覽器工作台。 <span class="project-view" data-stats-path="/Webcoding/">統計載入中</span></span><span class="bento-go">開啟工具 ↗</span></span></a>
+          <a class="bento-card b-wide" data-cat="cre" href="https://polik18.github.io/Screenrecorder/"><span class="bento-shot"><img src="assets/shots/screenrecorder.webp" alt="Screenrecorder Pro 畫面預覽" width="640" height="1000" loading="lazy" decoding="async"></span><span class="bento-body"><span class="bento-cat">內容創作</span><strong class="bento-title">Screenrecorder Pro</strong><span class="bento-desc">本機螢幕擷取、雙軌混音與可拖曳攝影機子母畫面。 <span class="project-view" data-stats-path="/Screenrecorder/">統計載入中</span></span><span class="bento-go">開啟工具 ↗</span></span></a>
+          <a class="bento-card b-tall" data-cat="cre" href="https://polik18.github.io/Audio-Visualizer-3D/"><span class="bento-shot"><img src="assets/shots/audio-visualizer-3d.webp" alt="Audio Visualizer 3D 畫面預覽" width="640" height="1000" loading="lazy" decoding="async"></span><span class="bento-body"><span class="bento-cat">內容創作</span><strong class="bento-title">Audio Visualizer 3D</strong><span class="bento-desc">音訊驅動的 3D 視覺效果與 MP4 輸出。 <span class="project-view" data-stats-path="/Audio-Visualizer-3D/">統計載入中</span></span><span class="bento-go">開啟工具 ↗</span></span></a>
+          <a class="bento-card b-sm" data-cat="cre" href="https://polik18.github.io/ytshort/"><span class="bento-shot"><img src="assets/shots/ytshort.webp" alt="YouTube Shorts Embed 畫面預覽" width="640" height="1000" loading="lazy" decoding="async"></span><span class="bento-body"><span class="bento-cat">內容創作</span><strong class="bento-title">YouTube Shorts Embed</strong><span class="bento-desc">把 Shorts 網址快速轉成可調整的直式嵌入碼。 <span class="project-view" data-stats-path="/ytshort/">統計載入中</span></span><span class="bento-go">開啟工具 ↗</span></span></a>
+          <a class="bento-card b-sm" data-cat="sys" href="https://polik18.github.io/YieldVitals/"><span class="bento-shot"><img src="assets/shots/yieldvitals.webp" alt="YieldVitals 畫面預覽" width="640" height="1000" loading="lazy" decoding="async"></span><span class="bento-body"><span class="bento-cat">系統診斷</span><strong class="bento-title">YieldVitals</strong><span class="bento-desc">CPU、GPU、記憶體、儲存與網路的八軸瀏覽器評測。 <span class="project-view" data-stats-path="/YieldVitals/">統計載入中</span></span><span class="bento-go">開啟工具 ↗</span></span></a>
+          <a class="bento-card b-wide" data-cat="sys" href="https://polik18.github.io/polik-recovery/"><span class="bento-shot"><img src="assets/shots/polik-recovery.webp" alt="Polik Recovery 畫面預覽" width="640" height="1000" loading="lazy" decoding="async"></span><span class="bento-body"><span class="bento-cat">系統診斷</span><strong class="bento-title">Polik Recovery</strong><span class="bento-desc">唯讀優先的磁碟救援架構、操作教學與桌面程式入口。 <span class="project-view" data-stats-path="/polik-recovery/">統計載入中</span></span><span class="bento-go">查看專案 ↗</span></span></a>
+          <a class="bento-card b-wide" data-cat="lab" href="https://polik18.github.io/CyberSnake/"><span class="bento-shot"><img src="assets/shots/cybersnake.webp" alt="Cyber Snake 3D 畫面預覽" width="640" height="1000" loading="lazy" decoding="async"></span><span class="bento-body"><span class="bento-cat">互動實驗</span><strong class="bento-title">Cyber Snake 3D</strong><span class="bento-desc">結合 WebGL、動態運鏡與即時合成音效的互動遊戲。 <span class="project-view" data-stats-path="/CyberSnake/">統計載入中</span></span><span class="bento-go">開始遊戲 ↗</span></span></a>
         </div>
       </div>
     </section>
@@ -117,6 +137,6 @@
 
   <footer class="site-footer"><div class="container footer-grid"><div><strong>Polik Projects</strong><p>以教學現場為起點，持續探索瀏覽器能替工作流程做到什麼。</p></div><div class="footer-links"><a href="education.html">教學</a><a href="creator.html">創作</a><a href="systems.html">系統</a><a href="experiments.html">實驗</a><a href="https://polik18.blogspot.com/">部落格</a></div></div></footer>
   <script src="assets/site-stats.js?v=20261002-2" defer></script>
-  <script src="assets/fx.js?v=20261120" defer></script>
+  <script src="assets/fx.js?v=20261120c" defer></script>
 </body>
 </html>
