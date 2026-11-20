@@ -1,0 +1,19 @@
+/* Polik Projects 共用浮動列樣式（由 polik-shell.js 以 <link> 載入，相容嚴格 CSP） */
+.pk-dock{position:fixed;bottom:14px;z-index:2147483600;display:flex;align-items:center;gap:6px;padding:5px;border:1px solid rgba(148,163,196,.26);border-radius:999px;background:rgba(8,12,24,.72);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);box-shadow:0 18px 44px -16px rgba(0,0,0,.85);font:600 13px/1 "Space Grotesk","Noto Sans TC",system-ui,-apple-system,sans-serif;transition:opacity .3s,transform .3s}
+.pk-dock[data-side=left]{left:14px}.pk-dock[data-side=right]{right:14px}
+.pk-dock a{position:relative;display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px 0 12px;color:#dbe5f5;text-decoration:none;border-radius:999px;transition:background .2s,color .2s,transform .2s}
+.pk-dock a:hover,.pk-dock a:focus-visible{color:#fff;background:rgba(148,163,196,.14)}
+.pk-dock a:focus-visible{outline:2px solid #22d3ee;outline-offset:2px}
+.pk-dock .pk-home{width:38px;padding:0;justify-content:center;color:#05070d;font-size:17px;background:linear-gradient(120deg,var(--pk-a,#22d3ee),#818cf8 55%,var(--pk-b,#f472b6));isolation:isolate}
+.pk-dock .pk-home::before{content:"";position:absolute;inset:-3px;z-index:-1;border-radius:inherit;background:conic-gradient(from var(--pk-spin,0deg),var(--pk-a,#22d3ee),var(--pk-b,#f472b6),#a3e635,#818cf8,var(--pk-a,#22d3ee));filter:blur(6px);opacity:.7;animation:pk-spin 4s linear infinite}
+.pk-dock .pk-home:hover{color:#05070d;transform:translateY(-1px)}
+.pk-dock .pk-home em{position:absolute;bottom:calc(100% + 10px);left:50%;padding:6px 10px;color:#eef3fb;font-style:normal;white-space:nowrap;border:1px solid rgba(148,163,196,.26);border-radius:8px;background:rgba(14,20,36,.92);opacity:0;transform:translate(-50%,4px);transition:opacity .16s,transform .16s;pointer-events:none}
+.pk-dock .pk-home:hover em,.pk-dock .pk-home:focus-visible em{opacity:1;transform:translate(-50%,0)}
+.pk-dock .pk-cat i{font-style:normal;color:var(--pk-a,#22d3ee)}
+.pk-dock .pk-brand{padding:0 6px 0 4px;color:#8a99b3;font:700 10px/1 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.14em}
+.pk-dock.pk-hide{opacity:0;transform:translateY(12px);pointer-events:none}
+@property --pk-spin{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes pk-spin{to{--pk-spin:360deg}}
+@media (max-width:640px){.pk-dock{bottom:10px}.pk-dock[data-side=left]{left:10px}.pk-dock .pk-brand{display:none}.pk-dock a{height:34px;padding:0 11px 0 9px;font-size:12px}.pk-dock .pk-home{width:34px}}
+@media print{.pk-dock{display:none}}
+@media (prefers-reduced-motion:reduce){.pk-dock .pk-home::before{animation:none}}
